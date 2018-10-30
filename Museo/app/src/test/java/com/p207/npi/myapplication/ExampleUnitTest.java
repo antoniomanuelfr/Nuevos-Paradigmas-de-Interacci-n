@@ -1,4 +1,4 @@
-package com.NPI.P207;
+package com.p207.npi.myapplication;
 
 import org.junit.Test;
 
