@@ -1,4 +1,4 @@
-package com.p207.npi.myapplication;
+package com.p207.npi.Museo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
