@@ -1,4 +1,4 @@
-package com.p207.npi.myapplication;
+package com.p207.npi.Museo;
 
 import org.junit.Test;
 
