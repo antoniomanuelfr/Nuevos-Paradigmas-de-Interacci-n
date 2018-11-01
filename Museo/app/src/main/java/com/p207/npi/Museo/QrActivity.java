@@ -13,23 +13,14 @@ import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.webkit.URLUtil;
-
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
-
 import java.io.IOException;
+
 public class QrActivity extends BaseActivity {
 
-    @Override
-    int getContentViewId(){
-        return R.layout.qr_layout;
-    }
-    @Override
-    int getNavigationMenuItemId(){
-        return R.id.navigation_qr;
-    }
 
     private CameraSource cameraSource;
     private SurfaceView cameraView;
@@ -38,10 +29,17 @@ public class QrActivity extends BaseActivity {
     private String tokenanterior = "";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.qr_layout);
+    int getContentViewId(){
+        return R.layout.qr_layout;
+    }
 
+    @Override
+    int getNavigationMenuItemId(){
+        return R.id.navigation_qr;
+    }
+    
+    @Override
+    protected void initActivity() {
         cameraView = (SurfaceView) findViewById(R.id.camera_view);
         initQR();
     }
@@ -116,6 +114,7 @@ public class QrActivity extends BaseActivity {
 
                     // verificamos que el token anterior no se igual al actual
                     // esto es util para evitar multiples llamadas empleando el mismo token
+
                     if (!token.equals(tokenanterior)) {
 
                         // guardamos el ultimo token proceado
@@ -134,22 +133,23 @@ public class QrActivity extends BaseActivity {
                             shareIntent.setType("text/plain");
                             startActivity(shareIntent);
                         }
-
-                        new Thread(new Runnable() {
-                            public void run() {
-                                try {
-                                    synchronized (this) {
-                                        wait(5000);
-                                        // limpiamos el token
-                                        tokenanterior = "";
-                                    }
-                                } catch (InterruptedException e) {
-                                    // TODO Auto-generated catch block
-                                    Log.e("Error", "Waiting didnt work!!");
-                                    e.printStackTrace();
-                                }
-                            }
-                        }).start();
+//Esto esta comentado porque asi el lector de qr solo funciona una vez, si queremos que el lector
+// de qr este siempre activo descomentar esto
+//                        new Thread(new Runnable() {
+//                            public void run() {
+//                                try {
+//                                    synchronized (this) {
+//                                        wait(5000);
+//                                        // limpiamos el token
+//                                        tokenanterior = "";
+//                                    }
+//                                } catch (InterruptedException e) {
+//                                    // TODO Auto-generated catch block
+//                                    Log.e("Error", "Waiting didnt work!!");
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//                        }).start();
 
                     }
                 }
