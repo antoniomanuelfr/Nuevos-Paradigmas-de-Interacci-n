@@ -15,14 +15,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/title_qr"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <SurfaceView
+            android:id="@+id/camera_view"
+            android:layout_width="1920px"
+            android:layout_height="1080px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
