@@ -9,4 +9,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="visitar_wiki">Visitar WIKI</string>
+    <string name="habla_bot">Pregunta al bot</string>
+    <string name="name">Nombre:</string>
 </resources>
