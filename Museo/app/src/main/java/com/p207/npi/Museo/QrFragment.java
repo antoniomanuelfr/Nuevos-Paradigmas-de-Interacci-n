@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class QrFragment extends Fragment implements View.OnClickListener{
@@ -18,9 +19,6 @@ public class QrFragment extends Fragment implements View.OnClickListener{
     private Button buttonScan;
     private TextView textViewName, textViewAddress;
 
-    //qr code scanner object
-
-
     public QrFragment() {
         // Required empty public constructor
     }
@@ -28,12 +26,24 @@ public class QrFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent Data){
         super.onActivityResult(requestCode, resultCode, Data);
-        if (requestCode==SCAN_REQUEST_CODE && resultCode==QrActivity.RESULT_OK){
-            textViewName.setText(Data.getStringExtra("name"));
-            textViewAddress.setText(Data.getStringExtra("address"));
 
+        //Se ha escaneado un codigo QR correctamente
+        if (requestCode==SCAN_REQUEST_CODE){
+
+            if (resultCode==QrActivity.RESULT_OK){
+                String result = Data.getStringExtra("result");
+                String Name = result.substring(0,result.indexOf("\n"));
+                String URL = result.substring(result.indexOf("\n"),result.length());
+
+                textViewName.setText(Name);
+                textViewAddress.setText(URL);
+
+        //No se escaneo ningun codigo qr
+            }else {
+                Toast.makeText(getActivity(), "No se encontró ningun resultado", Toast.LENGTH_LONG).show();
+
+            }
         }
-
     }
 
     @Override
@@ -52,9 +62,15 @@ public class QrFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        StartScanner();
+
+    }
+    private void StartScanner(){
+
         Intent i = new Intent(getActivity(),QrActivity.class);
         startActivityForResult(i,SCAN_REQUEST_CODE);
     }
+
 }
 
 
