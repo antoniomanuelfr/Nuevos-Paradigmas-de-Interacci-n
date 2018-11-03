@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -42,10 +43,13 @@ public class QrFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_qr, container, false);
+        View vista = inflater.inflate(R.layout.fragment_qr, container, false);
+        cameraView = vista.findViewById(R.id.camera_view);
+        initQR();
+        return vista;
     }
 
     public void initQR() {
@@ -114,7 +118,7 @@ public class QrFragment extends Fragment {
                 if (barcodes.size() > 0) {
 
                     // obtenemos el token
-                    token = barcodes.valueAt(0).displayValue.toString();
+                    token = barcodes.valueAt(0).displayValue;
 
                     // verificamos que el token anterior no se igual al actual
                     // esto es util para evitar multiples llamadas empleando el mismo token
