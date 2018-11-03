@@ -1,60 +1,64 @@
 package com.p207.npi.Museo;
 
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.util.SparseArray;
+import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.URLUtil;
+
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
+
 import java.io.IOException;
 
-public class QrActivity extends BaseActivity {
 
-
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class QrFragment extends Fragment {
     private CameraSource cameraSource;
     private SurfaceView cameraView;
     private final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
     private String token = "";
     private String tokenanterior = "";
 
-    @Override
-    int getContentViewId(){
-        return R.layout.qr_layout;
+    public QrFragment() {
+        // Required empty public constructor
     }
 
+
     @Override
-    int getNavigationMenuItemId(){
-        return R.id.navigation_qr;
-    }
-    
-    @Override
-    protected void initActivity() {
-        cameraView = (SurfaceView) findViewById(R.id.camera_view);
-        initQR();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_qr, container, false);
     }
 
     public void initQR() {
 
         // creo el detector qr
         BarcodeDetector barcodeDetector =
-                new BarcodeDetector.Builder(this)
+                new BarcodeDetector.Builder(getActivity())
                         .setBarcodeFormats(Barcode.ALL_FORMATS)
                         .build();
 
         // creo la camara
         cameraSource = new CameraSource
-                .Builder(this, barcodeDetector)
+                .Builder(getActivity(), barcodeDetector)
                 .setRequestedPreviewSize(1600, 1024)
                 .setAutoFocusEnabled(true) //you should add this feature
                 .build();
@@ -65,7 +69,7 @@ public class QrActivity extends BaseActivity {
             public void surfaceCreated(SurfaceHolder holder) {
 
                 // verifico si el usuario dio los permisos para la camara
-                if (ActivityCompat.checkSelfPermission(QrActivity.this, Manifest.permission.CAMERA)
+                if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)
                         != PackageManager.PERMISSION_GRANTED) {
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -158,3 +162,5 @@ public class QrActivity extends BaseActivity {
 
     }
 }
+
+

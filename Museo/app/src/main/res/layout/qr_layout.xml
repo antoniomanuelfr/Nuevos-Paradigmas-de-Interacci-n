@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".QrActivity">
 
-    <include
-        android:id="@+id/navigation"
-        layout="@layout/element_bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
