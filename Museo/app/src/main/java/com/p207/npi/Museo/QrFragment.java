@@ -11,9 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.zxing.integration.android.IntentIntegrator;
 
-public class QrFragment extends Fragment {
+public class QrFragment extends Fragment implements View.OnClickListener{
     private  final int SCAN_REQUEST_CODE = 21;
 
     private Button buttonScan;
@@ -27,19 +26,11 @@ public class QrFragment extends Fragment {
     }
 
     @Override
-    public  void onActivityCreated(Bundle savedInstanceState){
-        super.onActivityCreated(savedInstanceState);
-
-        Intent i = new Intent(getActivity(),QrActivity.class);
-        startActivityForResult(i,SCAN_REQUEST_CODE);
-
-    }
-
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent Data){
         super.onActivityResult(requestCode, resultCode, Data);
-        getActivity();
         if (requestCode==SCAN_REQUEST_CODE && resultCode==QrActivity.RESULT_OK){
+            textViewName.setText(Data.getStringExtra("name"));
+            textViewAddress.setText(Data.getStringExtra("address"));
 
         }
 
@@ -51,7 +42,18 @@ public class QrFragment extends Fragment {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_qr, container, false);
 
+        buttonScan =  vista.findViewById(R.id.buttonScan);
+        textViewName =  vista.findViewById(R.id.textViewName);
+        textViewAddress =  vista.findViewById(R.id.textViewAddress);
+
+        buttonScan.setOnClickListener(this);
         return vista;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent i = new Intent(getActivity(),QrActivity.class);
+        startActivityForResult(i,SCAN_REQUEST_CODE);
     }
 }
 

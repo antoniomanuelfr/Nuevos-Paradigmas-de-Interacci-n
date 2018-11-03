@@ -33,30 +33,20 @@ public class QrActivity extends AppCompatActivity {
                 finish();
             } else {
                 //if qr contains data
-                try {
-                    //converting the data to json
-                    JSONObject obj = new JSONObject(result.getContents());
-                    String name = obj.getString("name");
-                    String address = obj.getString("address");
+                    String ScanRes = result.getContents();
+
+//                  JSONObject obj = new JSONObject(result.getContents());
+//                  String name = obj.getString("N");
+//                  String address = obj.getString("ADR");
+
+
                     Intent returnIntent = new Intent();
-                    returnIntent.putExtra("name",name) ;
-                    returnIntent.putExtra("address",address);
+                    returnIntent.putExtra("name", ScanRes) ;
+                    returnIntent.putExtra("address","0");
 
-                    setResult(RESULT_OK);
+                    setResult(RESULT_OK, returnIntent);
                     finish();
-                    //setting values to textviews
-                    //textViewName.setText(obj.getString("name"));
-                    //textViewAddress.setText(obj.getString("address"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    //if control comes here
-                    //that means the encoded format not matches
-                    //in this case you can display whatever data is available on the qrcode
-                    //to a toast
 
-                    Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
-                    finish();
-                }
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
