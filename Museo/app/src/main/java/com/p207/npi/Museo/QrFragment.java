@@ -1,6 +1,7 @@
 package com.p207.npi.Museo;
 
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,12 +26,13 @@ public class QrFragment extends Fragment implements View.OnClickListener{
 
         Map<String, String> myMap = new HashMap<>();
         String[] pairs = result.split(",");
+
         for (String pair : pairs) {
+
             String[] keyValue = pair.split("->");
+
             if(keyValue.length==2)
-
                 myMap.put(keyValue[0], keyValue[1]);
-
             else
                 return null;
         }
@@ -62,6 +64,14 @@ public class QrFragment extends Fragment implements View.OnClickListener{
 
                     String URL = mapResult.get(URLKey);
                     Toast.makeText(getActivity(), "QR aceptado", Toast.LENGTH_LONG).show();
+
+                    ModelInfoQr modelView = ViewModelProviders.of(getActivity()).get(ModelInfoQr.class);
+                    modelView.setName(Name);
+                    modelView.setURL(URL);
+
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.mainContainer,new ReadedQrFragment())
+                            .commit();
 
 
                 } else {
