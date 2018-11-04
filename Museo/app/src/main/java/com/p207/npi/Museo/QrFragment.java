@@ -39,8 +39,13 @@ public class QrFragment extends Fragment implements View.OnClickListener{
                 textViewAddress.setText(URL);
 
         //No se escaneo ningun codigo qr
-            }else {
-                Toast.makeText(getActivity(), "No se encontró ningun resultado", Toast.LENGTH_LONG).show();
+            }else if (requestCode == QrActivity.RESULT_NOT_OK) {
+                Toast.makeText(getActivity(), "QR no valido, pruebe de nuevo.", Toast.LENGTH_LONG).show();
+
+            }
+            else {
+                Toast.makeText(getActivity(), "No se ha escaneado nada.", Toast.LENGTH_LONG).show();
+
 
             }
         }
