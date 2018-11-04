@@ -4,12 +4,16 @@
     <string name="title_qr">QR</string>
     <string name="title_micro">Micro</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="visitar_wiki">Visitar WIKI</string>
+    <string name="visitar_wiki">Más información</string>
+    <string name="info_button">Información</string>
     <string name="habla_bot">Pregunta al bot</string>
     <string name="name">Nombre:</string>
+    <string name="todo">TODO</string>
+    <string name="scan_qr_code">Escanear código QR</string>
+    <string name="qr_introduction">En la parte inferior de cada estatua de la exposicion, hay un
+        codigo QR el cual si lo escaneas pulsando el botón inferior podras tener más información
+        sobre el personaje.
+
+    </string>
 </resources>
