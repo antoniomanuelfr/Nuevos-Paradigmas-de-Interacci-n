@@ -72,11 +72,6 @@ public class QrFragment extends Fragment implements View.OnClickListener{
                 Toast.makeText(getActivity(), "No se leyó el QR, pruebe otra vez", Toast.LENGTH_LONG).show();
 
             }
-            else {
-                Toast.makeText(getActivity(), "No se ha escaneado nada.", Toast.LENGTH_LONG).show();
-
-
-            }
         }
     }
 
