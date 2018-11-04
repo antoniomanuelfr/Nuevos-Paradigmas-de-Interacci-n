@@ -2,6 +2,8 @@ package com.p207.npi.Museo;
 
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,7 +16,7 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ReadedQrFragment extends Fragment {
+public class ReadedQrFragment extends Fragment implements View.OnClickListener{
 
 
     public ReadedQrFragment() {
@@ -30,7 +32,7 @@ public class ReadedQrFragment extends Fragment {
         ModelInfoQr modelView = ViewModelProviders.of(getActivity()).get(ModelInfoQr.class);
 
         String name = modelView.getName();
-        String URL = modelView.getURL();
+
         String imageName = name.replace(' ','_').toLowerCase();
 
         int imageRes = getResources().getIdentifier(imageName,"drawable",getActivity().getPackageName());
@@ -44,9 +46,31 @@ public class ReadedQrFragment extends Fragment {
         ReadedName.setText(name);
         Image.setImageResource(imageRes);
 
-
+        AskBotButton.setOnClickListener(this);
+        InfoButton.setOnClickListener(this);
+        WikiButton.setOnClickListener(this);
 
         return vista;
     }
 
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+
+            case R.id.ask_bot_from_qr:
+
+            case R.id.info_button_from_qr:
+
+            case R.id.go_wiki_from_qr:
+                ModelInfoQr modelView = ViewModelProviders.of(getActivity()).get(ModelInfoQr.class);
+
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(modelView.getURL()));
+                startActivity(browserIntent);
+
+
+        }
+
+    }
 }
