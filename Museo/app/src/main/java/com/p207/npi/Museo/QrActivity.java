@@ -10,7 +10,7 @@ import com.google.zxing.integration.android.IntentResult;
 public class QrActivity extends AppCompatActivity {
     public static int RESULT_OK = 1;
     public static int RESULT_NOT_OK = 0;
-
+    public static int NULL_RESULT = -1;
     private IntentIntegrator qrScan;
 
     @Override
@@ -39,10 +39,12 @@ public class QrActivity extends AppCompatActivity {
 
                     setResult(RESULT_OK, returnIntent);
                     finish();
-
             }
         } else {
-            super.onActivityResult(requestCode, resultCode, data);
+            Intent returnIntent = new Intent();
+            setResult(NULL_RESULT, returnIntent);
+            finish();
+
         }
     }
 

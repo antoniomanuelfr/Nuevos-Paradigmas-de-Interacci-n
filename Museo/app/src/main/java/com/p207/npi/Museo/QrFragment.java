@@ -2,11 +2,9 @@ package com.p207.npi.Museo;
 
 
 import android.content.Intent;
-import android.icu.text.DateFormat;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +31,12 @@ public class QrFragment extends Fragment implements View.OnClickListener{
         String[] pairs = result.split(",");
         for (String pair : pairs) {
             String[] keyValue = pair.split("->");
-            myMap.put(keyValue[0], keyValue[1]);
+            if(keyValue.length==2)
+
+                myMap.put(keyValue[0], keyValue[1]);
+
+            else
+                return null;
         }
 
         return myMap;
@@ -54,8 +57,10 @@ public class QrFragment extends Fragment implements View.OnClickListener{
                 String result = Data.getStringExtra("result");
                 Map<String, String> mapResult = processResult(result);
 
+                if (mapResult == null){
+                    Toast.makeText(getActivity(), "QR no valido.", Toast.LENGTH_LONG).show();
 
-                if (mapResult.containsKey(NameKey) && mapResult.containsKey(URLKey)) {
+                }else if (mapResult.containsKey(NameKey) && mapResult.containsKey(URLKey)) {
 
                     String Name = mapResult.get(NameKey);
 
@@ -65,16 +70,17 @@ public class QrFragment extends Fragment implements View.OnClickListener{
                     textViewAddress.setText(URL);
 
                 }else{
-                    Toast.makeText(getActivity(), "QR no valido.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "No se encontró ningun resultado.", Toast.LENGTH_LONG).show();
 
                 }
 
-        //No se escaneo ningun codigo qr
-            }else {
-                Toast.makeText(getActivity(), "No se encontró ningun resultado", Toast.LENGTH_LONG).show();
 
             }
         }
+    }
+
+    public TextView getTextViewAddress() {
+        return textViewAddress;
     }
 
     @Override
