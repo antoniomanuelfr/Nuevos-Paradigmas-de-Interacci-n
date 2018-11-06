@@ -57,6 +57,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/visitar_wiki"
                 android:visibility="visible" />
+            <View style="@style/Divider"
+                />
         </LinearLayout>
 
     </ScrollView>
