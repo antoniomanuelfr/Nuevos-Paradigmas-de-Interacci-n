@@ -52,6 +52,9 @@ public class Bot extends Fragment implements View.OnClickListener {
     private User myAccount;
     private User TyrionBot;
 
+    public Bot(){
+    }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,7 +88,7 @@ public class Bot extends Fragment implements View.OnClickListener {
     /*
      * AIRequest should have query OR event
      */
-    private void sendRequest(String text) {
+     void sendRequest(String text) {
         Log.d(TAG, text);
         final String queryString = String.valueOf(text);
         final String eventString = null;

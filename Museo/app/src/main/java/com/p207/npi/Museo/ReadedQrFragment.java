@@ -23,6 +23,7 @@ import java.util.Objects;
 public class ReadedQrFragment extends Fragment {
 
 
+
     public ReadedQrFragment() {
         // Required empty public constructor
     }
@@ -62,16 +63,24 @@ public class ReadedQrFragment extends Fragment {
     private final View.OnClickListener mListener = new View.OnClickListener() {
         public void onClick(View view) {
 
+            ModelInfoQr modelView = ViewModelProviders.of(Objects.requireNonNull(getActivity())).get(ModelInfoQr.class);
+
             switch (view.getId()) {
 
                 case R.id.ask_bot_from_qr:
+
+                    String name=modelView.getName();
+                    Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.mainContainer,new Bot(name))
+                            .commit();
                     break;
+
                 case R.id.info_button_from_qr:
                     Toast.makeText(getActivity(), "Illo berni funiona", Toast.LENGTH_LONG).show();
                     break;
+
                 case R.id.go_wiki_from_qr:
 
-                    ModelInfoQr modelView = ViewModelProviders.of(Objects.requireNonNull(getActivity())).get(ModelInfoQr.class);
 
 
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(modelView.getURL()));
