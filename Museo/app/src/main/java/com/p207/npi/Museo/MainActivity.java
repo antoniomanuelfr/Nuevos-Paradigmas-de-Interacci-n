@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity
 
                     return true;
                 case R.id.navigation_micro:
-                    transaction.replace(R.id.mainContainer,new SpeakFragment());
+                    transaction.replace(R.id.mainContainer,new Bot());
                     transaction.commit();
 
                     return true;
