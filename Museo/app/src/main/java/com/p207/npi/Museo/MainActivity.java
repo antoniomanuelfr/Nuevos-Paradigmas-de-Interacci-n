@@ -33,8 +33,11 @@ public class MainActivity extends AppCompatActivity
 
                     return true;
                 case R.id.navigation_micro:
+
+
                     transaction.replace(R.id.mainContainer,new Bot());
                     transaction.commit();
+
 
                     return true;
             }
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
 
-        final ModelInfoQr viewModel = ViewModelProviders.of(this).get(ModelInfoQr.class);
+        ViewModelProviders.of(this).get(ModelInfoQr.class);
 
 
         transaction.replace(R.id.mainContainer,new HomeFragment());

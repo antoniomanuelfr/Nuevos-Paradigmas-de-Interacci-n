@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class QrFragment extends Fragment implements View.OnClickListener{
     private  final int SCAN_REQUEST_CODE = 21;
@@ -65,7 +66,7 @@ public class QrFragment extends Fragment implements View.OnClickListener{
                     String URL = mapResult.get(URLKey);
                     Toast.makeText(getActivity(), "QR aceptado", Toast.LENGTH_LONG).show();
 
-                    ModelInfoQr modelView = ViewModelProviders.of(getActivity()).get(ModelInfoQr.class);
+                    ModelInfoQr modelView = ViewModelProviders.of(Objects.requireNonNull(getActivity())).get(ModelInfoQr.class);
                     modelView.setName(Name);
                     modelView.setURL(URL);
 

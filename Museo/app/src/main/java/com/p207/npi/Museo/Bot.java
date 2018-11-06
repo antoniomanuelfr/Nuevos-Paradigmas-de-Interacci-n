@@ -1,6 +1,7 @@
 package com.p207.npi.Museo;
 
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -19,6 +20,8 @@ import com.github.bassaer.chatmessageview.model.Message;
 import com.github.bassaer.chatmessageview.view.ChatView;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -96,6 +99,7 @@ public class Bot extends Fragment implements View.OnClickListener {
         new AiTask().execute(queryString, eventString, contextString);
     }
 
+    @SuppressLint("StaticFieldLeak")
     public class AiTask extends AsyncTask<String, Void, AIResponse> {
         private AIError aiError;
 
@@ -205,7 +209,7 @@ public class Bot extends Fragment implements View.OnClickListener {
         TyrionBot = new User(botId, botName, icon);
 
         chatView = Vista.findViewById(R.id.chat_view);
-        chatView.setRightBubbleColor(ContextCompat.getColor(getActivity(), R.color.lightBlue500));
+        chatView.setRightBubbleColor(ContextCompat.getColor(Objects.requireNonNull(getActivity()), R.color.lightBlue500));
         chatView.setLeftBubbleColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
         chatView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.blueGray500));
         chatView.setSendButtonColor(ContextCompat.getColor(getActivity(), R.color.lightBlue500));
@@ -219,6 +223,12 @@ public class Bot extends Fragment implements View.OnClickListener {
         chatView.setMessageMarginTop(5);
         chatView.setMessageMarginBottom(5);
         chatView.setOnClickSendButtonListener(this);
+        chatView.setOnBubbleClickListener(new Message.OnBubbleClickListener() {
+            @Override
+            public void onClick(@NotNull Message message) {
+
+            }
+        });
     }
 
     private void initService(final LanguageConfig languageConfig) {

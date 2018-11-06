@@ -1,10 +1,8 @@
 package com.p207.npi.Museo;
 
-/**
- * Created by flatfisher on 1/10/2018 AD.
- */
 
 import android.graphics.Bitmap;
+import android.support.annotation.NonNull;
 
 import com.github.bassaer.chatmessageview.model.IChatUser;
 
@@ -16,7 +14,7 @@ public class User implements IChatUser {
     private String name;
     private Bitmap icon;
 
-    public User(int id, String name, Bitmap icon) {
+    User(int id, String name, Bitmap icon) {
         this.id = id;
         this.name = name;
         this.icon = icon;
@@ -41,7 +39,7 @@ public class User implements IChatUser {
     }
 
     @Override
-    public void setIcon(Bitmap icon) {
+    public void setIcon(@NonNull Bitmap icon) {
         this.icon = icon;
     }
 }

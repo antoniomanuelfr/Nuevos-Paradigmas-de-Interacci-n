@@ -8,7 +8,10 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="57dp">
+        android:paddingBottom="57dp"
+        android:id="@+id/ScrollQrReaded"
+
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,7 +32,7 @@
             <ImageView
                 android:id="@+id/image_readed_from_qr"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="2"
                 android:scaleType="fitCenter"
                 android:visibility="visible"
