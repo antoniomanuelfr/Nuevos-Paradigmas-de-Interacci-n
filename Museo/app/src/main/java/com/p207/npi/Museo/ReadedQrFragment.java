@@ -71,7 +71,7 @@ public class ReadedQrFragment extends Fragment {
 
                     String name=modelView.getName();
                     Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.mainContainer,new Bot(name))
+                            .replace(R.id.mainContainer,new Bot())
                             .commit();
                     break;
 
