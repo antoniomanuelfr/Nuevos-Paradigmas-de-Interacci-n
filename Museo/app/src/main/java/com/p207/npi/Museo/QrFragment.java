@@ -102,10 +102,9 @@ public class QrFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         StartScanner();
-
     }
-    private void StartScanner(){
 
+    private void StartScanner(){
         Intent i = new Intent(getActivity(),QrActivity.class);
         startActivityForResult(i,SCAN_REQUEST_CODE);
     }
