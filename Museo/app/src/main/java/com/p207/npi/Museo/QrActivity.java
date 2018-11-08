@@ -11,8 +11,8 @@ public class QrActivity extends AppCompatActivity {
     public static int RESULT_OK = 1;
     public static int RESULT_NOT_OK = 0;
     public static int NULL_RESULT = -1;
-    private IntentIntegrator qrScan;
 
+    private IntentIntegrator qrScan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,6 @@ public class QrActivity extends AppCompatActivity {
             Intent returnIntent = new Intent();
             setResult(NULL_RESULT, returnIntent);
             finish();
-
         }
     }
 

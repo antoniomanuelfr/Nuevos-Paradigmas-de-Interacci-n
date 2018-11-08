@@ -1,6 +1,5 @@
 package com.p207.npi.Museo;
 
-
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,7 +11,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
 {
-
+    private  Bot bot;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -22,22 +21,28 @@ public class MainActivity extends AppCompatActivity
             FragmentTransaction transaction = manager.beginTransaction();
 
             switch (item.getItemId()) {
+
                 case R.id.navigation_home:
+
                     transaction.replace(R.id.mainContainer,new HomeFragment());
                     transaction.commit();
 
                     return true;
+
                 case R.id.navigation_qr:
+
                     transaction.replace(R.id.mainContainer,new QrFragment());
                     transaction.commit();
 
                     return true;
-                case R.id.navigation_micro:
 
+                case R.id.navigation_bot:
 
-                    transaction.replace(R.id.mainContainer,new Bot());
+                    //Así podemos añadir mensajes como el de que no hay internet
+                    if (bot == null)
+                        bot = new Bot();
+                    transaction.replace(R.id.mainContainer, bot);
                     transaction.commit();
-
 
                     return true;
             }
@@ -46,8 +51,10 @@ public class MainActivity extends AppCompatActivity
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -64,5 +71,22 @@ public class MainActivity extends AppCompatActivity
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    @Override
+    public void onBackPressed() {
 
+        BottomNavigationView nav = findViewById(R.id.navigation);
+        int seletedItemId = nav.getSelectedItemId();
+
+        if (R.id.navigation_home == seletedItemId)
+            super.onBackPressed();
+
+        else {
+
+            MenuItem item =nav.getMenu().getItem(0);
+            mOnNavigationItemSelectedListener.onNavigationItemSelected(item);
+            nav.setSelectedItemId(R.id.navigation_home);
+
+
+        }
+    }
 }

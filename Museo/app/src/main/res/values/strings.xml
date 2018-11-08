@@ -2,7 +2,7 @@
     <string name="app_name">Museo de Juego de Tronos</string>
     <string name="title_home">Home</string>
     <string name="title_qr">QR</string>
-    <string name="title_micro">Micro</string>
+    <string name="title_bot">Tyrion</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="visitar_wiki">Más información</string>
@@ -13,8 +13,24 @@
     <string name="scan_qr_code">Escanear código QR</string>
     <string name="qr_introduction">En la parte inferior de cada estatua de la exposicion, hay un
         codigo QR el cual si lo escaneas pulsando el botón inferior podras tener más información
-        sobre el personaje.
+        sobre el personaje.</string>
 
-    </string>
+    <string name="explicacion_jon"> </string>
+    <string name="expicacion_daenerys"> </string>
+    <string name="explicacion_tyrion"> </string>
+    <string name="explicacion_cersei"> </string>
+
+    <string name="explicacion_stark"> </string>
+    <string name="explicacion_lannister"> </string>
+    <string name="explicacion_targaryen"> </string>
+
+    <string name="explicacion_mapa"> </string>
+
+    <string name="explicacion_caminantes_blancos"> </string>
+    <string name="explicacion_dragones"> </string>
+
+    <string name="explicacion_vidriagon"> </string>
+    <string name="explicacion_acero"> </string>
+
     <string name="non_empty_query">Non empty query</string>
 </resources>

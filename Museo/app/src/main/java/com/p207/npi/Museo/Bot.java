@@ -23,6 +23,7 @@ import com.google.gson.JsonElement;
 
 import org.jetbrains.annotations.NotNull;
 
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -51,6 +52,7 @@ public class Bot extends Fragment implements View.OnClickListener {
     private ChatView chatView;
     private User myAccount;
     private User TyrionBot;
+
 
     public Bot(){
     }
@@ -211,6 +213,8 @@ public class Bot extends Fragment implements View.OnClickListener {
         String botName = "Tyrion Lannister";
         TyrionBot = new User(botId, botName, icon);
 
+
+
         chatView = Vista.findViewById(R.id.chat_view);
         chatView.setRightBubbleColor(ContextCompat.getColor(Objects.requireNonNull(getActivity()), R.color.lightBlue500));
         chatView.setLeftBubbleColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
@@ -226,12 +230,27 @@ public class Bot extends Fragment implements View.OnClickListener {
         chatView.setMessageMarginTop(5);
         chatView.setMessageMarginBottom(5);
         chatView.setOnClickSendButtonListener(this);
+        chatView.setOnIconClickListener(new Message.OnIconClickListener() {
+            @Override
+            public void onIconClick(@NotNull Message message) {
+
+            }
+        });
         chatView.setOnBubbleClickListener(new Message.OnBubbleClickListener() {
             @Override
             public void onClick(@NotNull Message message) {
 
             }
         });
+        chatView.setOnBubbleLongClickListener(new Message.OnBubbleLongClickListener() {
+            @Override
+            public void onLongClick(@NotNull Message message) {
+
+            }
+
+        });
+        addMessage("Hola.\nPara hablar conmigo necesitas estar conectado a internet.");
+
     }
 
     private void initService(final LanguageConfig languageConfig) {
@@ -241,5 +260,16 @@ public class Bot extends Fragment implements View.OnClickListener {
                 lang,
                 AIConfiguration.RecognitionEngine.System);
         aiDataService = new AIDataService(Objects.requireNonNull(getActivity()), config);
+    }
+
+    void addMessage(String message){
+        Message StartMessage = new Message.Builder()
+                .setUser(TyrionBot)
+                .setRightMessage(false)
+                .setMessageText(message)
+                .build();
+        chatView.receive(StartMessage);
+
+
     }
 }
