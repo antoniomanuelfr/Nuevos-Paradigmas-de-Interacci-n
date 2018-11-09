@@ -2,9 +2,14 @@ package com.p207.npi.Museo;
 
 
 import android.annotation.SuppressLint;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,6 +20,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.github.bassaer.chatmessageview.model.Message;
 import com.github.bassaer.chatmessageview.view.ChatView;
@@ -42,6 +48,8 @@ import ai.api.model.AIResponse;
 import ai.api.model.Metadata;
 import ai.api.model.Result;
 import ai.api.model.Status;
+
+import static android.webkit.URLUtil.isValidUrl;
 
 public class Bot extends Fragment implements View.OnClickListener {
 
@@ -250,13 +258,24 @@ public class Bot extends Fragment implements View.OnClickListener {
         chatView.setOnBubbleClickListener(new Message.OnBubbleClickListener() {
             @Override
             public void onClick(@NotNull Message message) {
+                String entrada = message.getMessageText();
+                if (isValidUrl(entrada)){
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(entrada));
+                    message.getStatusTextFormatter();
+                    startActivity(i);
+
+                }
 
             }
         });
         chatView.setOnBubbleLongClickListener(new Message.OnBubbleLongClickListener() {
             @Override
             public void onLongClick(@NotNull Message message) {
-
+                ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Mensaje", message.getMessageText());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(getActivity(), "Texto copiado al portapapeles", Toast.LENGTH_LONG).show();
             }
 
         });
