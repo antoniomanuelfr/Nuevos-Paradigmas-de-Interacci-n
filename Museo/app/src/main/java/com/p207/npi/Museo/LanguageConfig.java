@@ -1,9 +1,9 @@
-
 package com.p207.npi.Museo;
 
-import android.support.annotation.NonNull;
+    import android.support.annotation.NonNull;
 
 public class LanguageConfig {
+
     private final String languageCode;
     private final String accessToken;
 
@@ -25,4 +25,5 @@ public class LanguageConfig {
     public String toString() {
         return languageCode;
     }
+
 }
