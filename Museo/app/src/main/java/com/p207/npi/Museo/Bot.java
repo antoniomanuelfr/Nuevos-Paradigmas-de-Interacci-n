@@ -78,18 +78,20 @@ public class Bot extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        //new message
-        final Message message = new Message.Builder()
-                .setUser(myAccount)
-                .setRightMessage(true)
-                .setMessageText(chatView.getInputText())
-                .hideIcon(true)
-                .build();
-        //Set to chat view
-        chatView.send(message);
-        sendRequest(chatView.getInputText());
-        //Reset edit text
-        chatView.setInputText("");
+        if (!chatView.getInputText().equals("")){
+            //new message
+            final Message message = new Message.Builder()
+                    .setUser(myAccount)
+                    .setRightMessage(true)
+                    .setMessageText(chatView.getInputText())
+                    .hideIcon(true)
+                    .build();
+            //Set to chat view
+            chatView.send(message);
+            sendRequest(chatView.getInputText());
+            //Reset edit text
+            chatView.setInputText("");
+        }
     }
 
 
@@ -108,7 +110,8 @@ public class Bot extends Fragment implements View.OnClickListener {
         }
 
         new AiTask().execute(queryString, eventString, contextString);
-    }
+
+     }
 
     @SuppressLint("StaticFieldLeak")
     public class AiTask extends AsyncTask<String, Void, AIResponse> {
