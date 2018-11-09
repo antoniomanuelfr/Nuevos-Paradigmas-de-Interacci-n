@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,6 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
 {
-    private  Bot bot;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -37,14 +37,20 @@ public class MainActivity extends AppCompatActivity
                     return true;
 
                 case R.id.navigation_bot:
+                    Fragment prev = manager.findFragmentByTag(Bot.class.getName());
+                    //Identificar si el fragment esta guardado
+                    if (prev == null) {
+                        transaction.replace(R.id.mainContainer, new Bot(), Bot.class.getName());
+                        transaction.addToBackStack(Bot.class.getName());
+                        transaction.commit();
 
-                    //Así podemos añadir mensajes como el de que no hay internet
-                    if (bot == null)
-                        bot = new Bot();
-                    transaction.replace(R.id.mainContainer, bot);
-                    transaction.commit();
+                        return true;
 
-                    return true;
+                    }else{
+                        transaction.replace(R.id.mainContainer,prev);
+                        transaction.commit();
+                        return true;
+                    }
             }
 
             return false;
