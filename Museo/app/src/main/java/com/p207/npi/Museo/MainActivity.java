@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity
                     return true;
 
                 case R.id.navigation_qr:
-
                     transaction.replace(R.id.mainContainer,new QrFragment());
                     transaction.commit();
 

@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,10 +72,14 @@ public class QrFragment extends Fragment implements View.OnClickListener{
                     modelView.setName(Name);
                     modelView.setURL(URL);
 
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.mainContainer,new ReadedQrFragment())
-                            .commit();
+                    Fragment readedQr = new ReadedQrFragment();
 
+                    FragmentManager manager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    transaction.replace(R.id.mainContainer,readedQr, ReadedQrFragment.class.getName());
+                    transaction.addToBackStack(ReadedQrFragment.class.getName());
+
+                    transaction.commit();
 
                 } else {
                     Toast.makeText(getActivity(), "No se encontró ningun resultado.", Toast.LENGTH_LONG).show();
