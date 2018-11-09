@@ -23,7 +23,6 @@ import com.google.gson.JsonElement;
 
 import org.jetbrains.annotations.NotNull;
 
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -50,24 +49,31 @@ public class Bot extends Fragment implements View.OnClickListener {
     private Gson gson = GsonFactory.getGson();
     private AIDataService aiDataService;
     private ChatView chatView;
-    private User myAccount;
+    User myAccount;
     private User TyrionBot;
+    private View vista = null;
 
 
     public Bot(){
     }
 
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View vista = inflater.inflate(R.layout.fragment_bot, container, false);
-        initChatView(vista);
+        if (vista==null) {
+            vista = inflater.inflate(R.layout.fragment_bot, container, false);
+            initChatView(vista);
 
-        //Language, Dialogflow Client access token
-        final LanguageConfig config = new LanguageConfig("es", "4ba0ae40437d4ec3bbbfeecb293c4ba0");
-        initService(config);
+            //Language, Dialogflow Client access token
+            final LanguageConfig config = new LanguageConfig("es", "4ba0ae40437d4ec3bbbfeecb293c4ba0");
+            initService(config);
+            setRetainInstance(true);
+
+        }
         return vista;
+
     }
 
     @Override
@@ -190,6 +196,8 @@ public class Bot extends Fragment implements View.OnClickListener {
                         .setMessageText(speech)
                         .build();
                 chatView.receive(receivedMessage);
+
+
             }
         });
     }
@@ -203,6 +211,7 @@ public class Bot extends Fragment implements View.OnClickListener {
         });
     }
 
+
     private void initChatView(View Vista) {
         int myId = 0;
         Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.tyrion);
@@ -212,7 +221,6 @@ public class Bot extends Fragment implements View.OnClickListener {
         int botId = 1;
         String botName = "Tyrion Lannister";
         TyrionBot = new User(botId, botName, icon);
-
 
 
         chatView = Vista.findViewById(R.id.chat_view);
@@ -249,7 +257,7 @@ public class Bot extends Fragment implements View.OnClickListener {
             }
 
         });
-        addMessage("Hola.\nPara hablar conmigo necesitas estar conectado a internet.");
+        addMessage("Hola.\nPara hablar conmigo necesitas estar conectado a internet.", 0, TyrionBot);
 
     }
 
@@ -262,14 +270,15 @@ public class Bot extends Fragment implements View.OnClickListener {
         aiDataService = new AIDataService(Objects.requireNonNull(getActivity()), config);
     }
 
-    void addMessage(String message){
+    void addMessage(String message, int side, User user){
         Message StartMessage = new Message.Builder()
-                .setUser(TyrionBot)
-                .setRightMessage(false)
+                .setUser(user)
+                .setRightMessage(side!=0)
                 .setMessageText(message)
                 .build();
         chatView.receive(StartMessage);
 
 
     }
+
 }
