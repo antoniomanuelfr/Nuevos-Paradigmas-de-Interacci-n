@@ -43,21 +43,28 @@ public class QrFragment extends Fragment implements View.OnClickListener{
         String URLKey="URL";
         super.onActivityResult(requestCode, resultCode, Data);
         if (requestCode == SCAN_REQUEST_CODE){
+
             if (resultCode == QrActivity.RESULT_OK) {
+
                 String result = Data.getStringExtra("result");
                 Map<String, String> mapResult = processResult(result);
                 if (mapResult == null) {
+
                     Toast.makeText(getActivity(), "QR no valido.", Toast.LENGTH_LONG).show();
+
                 } else if (mapResult.containsKey(NameKey) && mapResult.containsKey(URLKey)) {
                     String Name = mapResult.get(NameKey);
                     String URL = mapResult.get(URLKey);
+
                     Toast.makeText(getActivity(), "QR aceptado", Toast.LENGTH_LONG).show();
                     ModelInfoQr modelView = ViewModelProviders.of(Objects.requireNonNull(getActivity())).get(ModelInfoQr.class);
                     modelView.setName(Name);
                     modelView.setURL(URL);
+
                     Fragment readedQr = new ReadedQrFragment();
                     FragmentManager manager = getActivity().getSupportFragmentManager();
                     FragmentTransaction transaction = manager.beginTransaction();
+
                     transaction.replace(R.id.mainContainer,readedQr, ReadedQrFragment.class.getName());
                     transaction.addToBackStack(ReadedQrFragment.class.getName());
                     transaction.commit();

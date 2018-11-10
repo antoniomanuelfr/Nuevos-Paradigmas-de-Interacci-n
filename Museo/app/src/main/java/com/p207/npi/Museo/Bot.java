@@ -15,6 +15,7 @@ package com.p207.npi.Museo;
     import android.support.annotation.NonNull;
     import android.support.annotation.Nullable;
     import android.support.v4.app.Fragment;
+    import android.support.v4.app.FragmentTransaction;
     import android.support.v4.content.ContextCompat;
     import android.text.TextUtils;
     import android.util.Log;
@@ -69,6 +70,7 @@ public class Bot extends Fragment implements View.OnClickListener {
     private boolean speakBefore = false;
     private View vista = null;
 
+
     public Bot(){
         // Empty
     }
@@ -97,7 +99,7 @@ public class Bot extends Fragment implements View.OnClickListener {
 
                 b.putString(RichTTS.TEXTTAG,text);
                 intent.putExtras(b);
-                startActivity(intent);
+                startActivityForResult(intent, RichTTS.REQUESTSPEACH);
                 return true;
             case R.id.activity_main:
                 return true;
@@ -105,6 +107,20 @@ public class Bot extends Fragment implements View.OnClickListener {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==RichTTS.REQUESTSPEACH){
+            if(resultCode==RichTTS.NO_LANGUAGE){
+                addMessage("No tienes el idioma español de España instalado, instalalo por favor", 0, TyrionBot);
+            }
+
+        }
+
+
     }
 
     @Override
@@ -126,14 +142,19 @@ public class Bot extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         ModelInfoQr modelView = ViewModelProviders.of(Objects.requireNonNull(getActivity())).get(ModelInfoQr.class);
 
         if (speakBefore){
             sendRequest("Hablame de " + modelView.getName());
             modelView.setAskBot(false);
             speakBefore=false;
+
+            Fragment actualiza = getActivity().getSupportFragmentManager().findFragmentByTag(Bot.class.getName());
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainContainer, actualiza);
+            ft.commit();
         }
     }
 

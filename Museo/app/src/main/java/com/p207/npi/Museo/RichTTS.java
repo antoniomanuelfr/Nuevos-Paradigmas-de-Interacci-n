@@ -30,15 +30,8 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SeekBar;
 import android.widget.Toast;
+
 import java.util.Locale;
 
 
@@ -61,6 +54,9 @@ public class RichTTS extends Activity implements TextToSpeech.OnInitListener{
     private final static int TTS_DATA_CHECK = 12;    // Request code to identify the intent that looks for a TTS Engine in the device
     private final static String LOGTAG = "RichTTS";
     static String TEXTTAG = "TextoTTS";
+    static int REQUESTSPEACH = 32;
+    public static int RESULT_OK = 1;
+    public static int NO_LANGUAGE =- 1;
 
     private TextToSpeech mytts;
 
@@ -85,6 +81,15 @@ public class RichTTS extends Activity implements TextToSpeech.OnInitListener{
             Bundle tts_params = new Bundle();
             tts_params.putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, 1);
             mytts.speak(text, TextToSpeech.QUEUE_ADD, tts_params, "msg");
+
+            Intent returnIntent = new Intent();
+            setResult(RESULT_OK, returnIntent);
+            //No se finaliza la activity aqui
+        }else{
+
+            Intent returnIntent = new Intent();
+            setResult(NO_LANGUAGE, returnIntent);
+            finish();
         }
     }
 
@@ -172,6 +177,7 @@ public class RichTTS extends Activity implements TextToSpeech.OnInitListener{
                 runOnUiThread(new Runnable() {
                     public void run() {
                         Toast.makeText(RichTTS.this, R.string.tts_error, Toast.LENGTH_LONG).show();
+
                     }
                 });
             }
