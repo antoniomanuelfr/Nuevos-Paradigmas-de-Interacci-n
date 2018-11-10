@@ -38,7 +38,10 @@
         <activity
             android:name=".QrActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".MapaPoniente"></activity>
+
+        <activity android:name=".MapaPoniente" />
+        <activity android:name=".RichTTS" />
+
     </application>
 
 </manifest>

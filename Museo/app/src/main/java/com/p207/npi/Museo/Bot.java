@@ -33,6 +33,7 @@ package com.p207.npi.Museo;
 
     import org.jetbrains.annotations.NotNull;
 
+    import java.util.ArrayList;
     import java.util.Collections;
     import java.util.HashMap;
     import java.util.List;
@@ -88,6 +89,15 @@ public class Bot extends Fragment implements View.OnClickListener {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.speak:
+                ArrayList<Message> mesagges = chatView.getMessageView().getMessageList();
+                Message last = mesagges.get(mesagges.size()-1);
+                String text = last.getMessageText();
+                Intent intent = new Intent(getActivity(),RichTTS.class);
+                Bundle b = new Bundle();
+
+                b.putString(RichTTS.TEXTTAG,text);
+                intent.putExtras(b);
+                startActivity(intent);
                 return true;
             case R.id.activity_main:
                 return true;

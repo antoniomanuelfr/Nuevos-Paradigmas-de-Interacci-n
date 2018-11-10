@@ -33,4 +33,10 @@
     <string name="explicacion_acero"> </string>
 
     <string name="non_empty_query">Non empty query</string>
+
+    <string name="tts_initialized">TTS initialized</string>
+    <string name="please_install_tts">There is no TTS installed, please download it from Google Play</string>
+    <string name="tts_done">Mission accomplished ;)</string>
+    <string name="tts_error">Oops! there was an error :S</string>
+    <string name="tts_started">TTS started!</string>
 </resources>
