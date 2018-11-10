@@ -61,11 +61,8 @@ public class RichTTS extends Activity implements TextToSpeech.OnInitListener{
     private final static int TTS_DATA_CHECK = 12;    // Request code to identify the intent that looks for a TTS Engine in the device
     private final static String LOGTAG = "RichTTS";
     static String TEXTTAG = "TextoTTS";
-    private String language;
 
     private TextToSpeech mytts;
-
-    private EditText inputText;
 
 
     /**
@@ -80,56 +77,17 @@ public class RichTTS extends Activity implements TextToSpeech.OnInitListener{
         initTTS();
     }
 
-    private void speakText (String text){
-
-        mytts.setLanguage(new Locale("ES"));
-        Bundle tts_params = new Bundle();
-        tts_params.putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, 1);
-        mytts.speak(text, TextToSpeech.QUEUE_ADD, tts_params, "msg");
+    private void speakText (String text) {
+        Locale espa = new Locale("spa", "ESP");
+        if (mytts.isLanguageAvailable(espa)>=0) {
+            mytts.setLanguage(espa);
+            mytts.setPitch(0.6544f);
+            Bundle tts_params = new Bundle();
+            tts_params.putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, 1);
+            mytts.speak(text, TextToSpeech.QUEUE_ADD, tts_params, "msg");
+        }
     }
 
-
-    /**
-     * Sets up the listener for the button that the user
-     * must click to hear the obtained the synthesized message
-     *
-     * http://developer.android.com/reference/android/speech/mytts/TextToSpeech.html#speak(java.lang.CharSequence,%20int,%20android.os.Bundle,%20java.lang.String)
-     */
-//    private void setButton() {
-//        // Reference the speak button
-//        // Set up click listener
-//        speakButton.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Get the text typed in by the user
-//                String text = inputText.getText().toString();
-//
-//                // If there is text, call the method speak() to synthesize it
-//                if (text.length() > 0) {
-//
-//                    //Set the language selected from the listView (see the itemClickListener in setLanguageListView)
-//                    if(language!=null)
-//                        mytts.setLanguage(new Locale(language));
-//
-//                    //Read volume from seekbar. The seekbar allows choosing integer values from 0 to 10,
-//                    //we must translate them to a float from 0 to 1
-//                    int vol= ((SeekBar) findViewById(R.id.volumeBar)).getProgress();
-//                    float volumeLevel = (float) vol/10;
-//
-//                    //The speak method accepts four parameters:
-//                        //text: the string to be spoken (obtained from the interface)
-//                        //QUEUE_ADD: queuing strategy = this message is added to the end of the playback queue
-//                        //tts_params: a bundle with tts parameters, in our case the volume level
-//                        //"msg": unique identifier for this request
-//                    Bundle tts_params = new Bundle();
-//                    tts_params.putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, volumeLevel);
-//                    mytts.speak(text, TextToSpeech.QUEUE_ADD, tts_params, "msg");
-//                }
-//
-//            }
-//        });
-//
-//    }
 
     /**
      * Checks whether there is a TTS Engine in the device, when done, it invokes the
