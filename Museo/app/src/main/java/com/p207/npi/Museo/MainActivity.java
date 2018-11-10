@@ -1,11 +1,13 @@
 // Bot - https://github.com/flatfisher/android-dialogflow-chatbot-sample
 // Shake Acelerometro Sensor - http://jasonmcreynolds.com/?p=388
 // Proximidad y Giroscopio - https://code.tutsplus.com/es/tutorials/android-sensors-in-depth-proximity-and-gyroscope--cms-28084
+// Multitouch - https://www.c-sharpcorner.com/UploadFile/88b6e5/multi-touch-panning-pinch-zoom-image-view-in-android-using/
 
 package com.p207.npi.Museo;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -102,7 +104,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onShake(int count) {
-                //Accion Shake - Mostrar Mapa
+                Intent intent = new Intent (getApplicationContext(), MapaPoniente.class);
+                startActivityForResult(intent, 0);
             }
         });
 
@@ -154,7 +157,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if(sensorEvent.values[0] < proximitySensor.getMaximumRange()) {
-                    // Accion Proximidad - Activar QR
+                    BottomNavigationView nav = findViewById(R.id.navigation);
+                    nav.setSelectedItemId(R.id.navigation_qr);
+                    FragmentManager manager = getSupportFragmentManager();
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    transaction.replace(R.id.mainContainer,new QrFragment());
+                    transaction.commit();
                 }
             }
 

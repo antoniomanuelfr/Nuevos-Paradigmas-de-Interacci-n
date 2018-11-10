@@ -3,10 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.p207.npi.Museo">
 
-    <uses-permission android:name="android.permission.CAMERA" android:required="true"/>
-    <uses-permission android:name="android.permission.INTERNET" android:required="true"/>
-    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true"/>
-    <uses-feature android:name="android.hardware.sensor.proximity" android:required="true" />
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.sensor.proximity"
+        android:required="true" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -18,9 +27,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"
-            >
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,8 +37,8 @@
         </activity>
         <activity
             android:name=".QrActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
+        <activity android:name=".MapaPoniente"></activity>
     </application>
 
 </manifest>
