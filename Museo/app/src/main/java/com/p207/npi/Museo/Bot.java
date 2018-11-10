@@ -90,6 +90,7 @@ public class Bot extends Fragment implements View.OnClickListener {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
+
             case R.id.speak:
                 ArrayList<Message> mesagges = chatView.getMessageView().getMessageList();
                 Message last = mesagges.get(mesagges.size()-1);
@@ -101,7 +102,9 @@ public class Bot extends Fragment implements View.OnClickListener {
                 intent.putExtras(b);
                 startActivityForResult(intent, RichTTS.REQUESTSPEACH);
                 return true;
-            case R.id.activity_main:
+
+            case R.id.record:
+
                 return true;
         }
 
@@ -153,7 +156,9 @@ public class Bot extends Fragment implements View.OnClickListener {
 
             Fragment actualiza = getActivity().getSupportFragmentManager().findFragmentByTag(Bot.class.getName());
             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.mainContainer, actualiza);
+            if (actualiza != null) {
+                ft.replace(R.id.mainContainer, actualiza);
+            }
             ft.commit();
         }
     }

@@ -1,21 +1,21 @@
 package com.p207.npi.Museo;
 
-    import android.arch.lifecycle.ViewModelProviders;
-    import android.content.Intent;
-    import android.os.Bundle;
-    import android.support.annotation.NonNull;
-    import android.support.v4.app.Fragment;
-    import android.support.v4.app.FragmentManager;
-    import android.support.v4.app.FragmentTransaction;
-    import android.view.LayoutInflater;
-    import android.view.View;
-    import android.view.ViewGroup;
-    import android.widget.Button;
-    import android.widget.Toast;
+import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
-    import java.util.HashMap;
-    import java.util.Map;
-    import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class QrFragment extends Fragment implements View.OnClickListener{
     private  final int SCAN_REQUEST_CODE = 21;
