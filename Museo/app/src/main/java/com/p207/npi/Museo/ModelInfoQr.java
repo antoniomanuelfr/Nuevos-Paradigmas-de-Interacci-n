@@ -6,6 +6,15 @@ class ModelInfoQr extends ViewModel {
 
     private String URL;
     private String Name;
+    private boolean askBot = false;
+
+    boolean isAskBot() {
+        return askBot;
+    }
+
+    void setAskBot(boolean askBot) {
+        this.askBot = askBot;
+    }
 
     String getName() {
         return Name;

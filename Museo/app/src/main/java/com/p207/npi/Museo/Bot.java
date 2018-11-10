@@ -1,6 +1,7 @@
 package com.p207.npi.Museo;
 
     import android.annotation.SuppressLint;
+    import android.arch.lifecycle.ViewModelProviders;
     import android.content.ClipData;
     import android.content.ClipboardManager;
     import android.content.Context;
@@ -12,6 +13,7 @@ package com.p207.npi.Museo;
     import android.os.AsyncTask;
     import android.os.Bundle;
     import android.support.annotation.NonNull;
+    import android.support.annotation.Nullable;
     import android.support.v4.app.Fragment;
     import android.support.v4.content.ContextCompat;
     import android.text.TextUtils;
@@ -60,6 +62,7 @@ public class Bot extends Fragment implements View.OnClickListener {
     private AIDataService aiDataService;
     private ChatView chatView;
     private User TyrionBot;
+    private boolean speakBefore = false;
     private View vista = null;
 
     public Bot(){
@@ -68,14 +71,32 @@ public class Bot extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         if (vista == null) {
+
+            ModelInfoQr modelView = ViewModelProviders.of(Objects.requireNonNull(getActivity())).get(ModelInfoQr.class);
+            final LanguageConfig config = new LanguageConfig("es", "4ba0ae40437d4ec3bbbfeecb293c4ba0");
+
             vista = inflater.inflate(R.layout.fragment_bot, container, false);
             initChatView(vista);
-            final LanguageConfig config = new LanguageConfig("es", "4ba0ae40437d4ec3bbbfeecb293c4ba0");
             initService(config);
             setRetainInstance(true);
+
+            speakBefore = modelView.isAskBot();
         }
         return vista;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ModelInfoQr modelView = ViewModelProviders.of(Objects.requireNonNull(getActivity())).get(ModelInfoQr.class);
+
+        if (speakBefore){
+            sendRequest("Hablame de " + modelView.getName());
+            modelView.setAskBot(false);
+            speakBefore=false;
+        }
     }
 
     @Override

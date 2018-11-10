@@ -18,6 +18,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private ShakeDetector mShakeDetector;
     private Sensor proximitySensor;
     private SensorEventListener proximitySensorListener;
+    private boolean salir = false;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -34,24 +36,41 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             FragmentManager manager = getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
+
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    transaction.replace(R.id.mainContainer,new HomeFragment());
-                    transaction.commit();
-                    return true;
+
+                    Fragment prevHome = manager.findFragmentByTag(HomeFragment.class.getName());
+
+                    if (prevHome == null) {
+                        transaction.replace(R.id.mainContainer, new HomeFragment(), HomeFragment.class.getName());
+                        transaction.addToBackStack(HomeFragment.class.getName());
+                        transaction.commit();
+                        return true;
+
+                    }else{
+                        transaction.replace(R.id.mainContainer,prevHome);
+                        transaction.commit();
+                        return true;
+                    }
+
                 case R.id.navigation_qr:
+
                     transaction.replace(R.id.mainContainer,new QrFragment());
                     transaction.commit();
                     return true;
+
                 case R.id.navigation_bot:
-                    Fragment prev = manager.findFragmentByTag(Bot.class.getName());
-                    if (prev == null) {
+                    Fragment prevBot = manager.findFragmentByTag(Bot.class.getName());
+                    if (prevBot == null) {
+
                         transaction.replace(R.id.mainContainer, new Bot(), Bot.class.getName());
                         transaction.addToBackStack(Bot.class.getName());
                         transaction.commit();
                         return true;
+
                     }else{
-                        transaction.replace(R.id.mainContainer,prev);
+                        transaction.replace(R.id.mainContainer,prevBot);
                         transaction.commit();
                         return true;
                     }
@@ -64,17 +83,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         ViewModelProviders.of(this).get(ModelInfoQr.class);
+
         transaction.replace(R.id.mainContainer,new HomeFragment());
         transaction.commit();
+
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mShakeDetector = new ShakeDetector();
+
         mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
 
             @Override
@@ -82,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 //Accion Shake - Mostrar Mapa
             }
         });
+
         proximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         if(proximitySensor == null) {
             finish();
@@ -92,12 +116,32 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         BottomNavigationView nav = findViewById(R.id.navigation);
         int seletedItemId = nav.getSelectedItemId();
-        if (R.id.navigation_home == seletedItemId)
-            super.onBackPressed();
-        else {
-            MenuItem item =nav.getMenu().getItem(0);
-            mOnNavigationItemSelectedListener.onNavigationItemSelected(item);
+
+        if (R.id.navigation_home == seletedItemId){
+            if (!salir){
+                Toast.makeText(this, "Pulse otra vez para salir", Toast.LENGTH_LONG).show();
+                salir =true;
+
+            }else
+                finish();
+
+        }else {
+
             nav.setSelectedItemId(R.id.navigation_home);
+            FragmentManager Manager = getSupportFragmentManager();
+            Fragment HomeFragment = Manager.findFragmentByTag(HomeFragment.class.getName());
+            FragmentTransaction transaction = Manager.beginTransaction();
+
+            if (HomeFragment==null){
+
+                transaction.replace(R.id.mainContainer, new HomeFragment(), HomeFragment.class.getName());
+                transaction.addToBackStack(Bot.class.getName());
+                transaction.commit();
+                }else{
+                    transaction.replace(R.id.mainContainer,HomeFragment);
+                    transaction.commit();
+
+            }
         }
     }
 
