@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,7 +70,9 @@ public class ReadedQrFragment extends Fragment {
 
                 case R.id.ask_bot_from_qr:
 
-                    String name=modelView.getName();
+                    BottomNavigationView nav = getActivity().findViewById(R.id.navigation);
+                    nav.setSelectedItemId(R.id.navigation_bot);
+
                     Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                             .replace(R.id.mainContainer,new Bot())
                             .commit();
@@ -80,8 +83,6 @@ public class ReadedQrFragment extends Fragment {
                     break;
 
                 case R.id.go_wiki_from_qr:
-
-
 
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(modelView.getURL()));
                     startActivity(browserIntent);
