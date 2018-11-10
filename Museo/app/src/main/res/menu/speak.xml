@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto" >
+
+    <item android:id="@+id/speak"
+        android:icon="@drawable/speak"
+        android:orderInCategory="100"
+        android:title=""
+        yourapp:showAsAction="always" />
+</menu>

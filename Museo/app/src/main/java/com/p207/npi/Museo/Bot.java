@@ -19,6 +19,9 @@ package com.p207.npi.Museo;
     import android.text.TextUtils;
     import android.util.Log;
     import android.view.LayoutInflater;
+    import android.view.Menu;
+    import android.view.MenuInflater;
+    import android.view.MenuItem;
     import android.view.View;
     import android.view.ViewGroup;
     import android.widget.Toast;
@@ -67,6 +70,31 @@ public class Bot extends Fragment implements View.OnClickListener {
 
     public Bot(){
         // Empty
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.speak, menu);
+        inflater.inflate(R.menu.record, menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.speak:
+                return true;
+            case R.id.activity_main:
+                return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
