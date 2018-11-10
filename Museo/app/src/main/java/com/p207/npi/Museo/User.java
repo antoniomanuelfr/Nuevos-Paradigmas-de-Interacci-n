@@ -1,13 +1,12 @@
 package com.p207.npi.Museo;
 
+    import android.graphics.Bitmap;
+    import android.support.annotation.NonNull;
 
-import android.graphics.Bitmap;
-import android.support.annotation.NonNull;
+    import com.github.bassaer.chatmessageview.model.IChatUser;
 
-import com.github.bassaer.chatmessageview.model.IChatUser;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+    import org.jetbrains.annotations.NotNull;
+    import org.jetbrains.annotations.Nullable;
 
 public class User implements IChatUser {
     private Integer id;
