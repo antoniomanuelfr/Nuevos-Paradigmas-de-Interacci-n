@@ -34,9 +34,9 @@
 
     <string name="non_empty_query">Non empty query</string>
 
-    <string name="tts_initialized">TTS initialized</string>
-    <string name="please_install_tts">There is no TTS installed, please download it from Google Play</string>
-    <string name="tts_done">Mission accomplished ;)</string>
-    <string name="tts_error">Oops! there was an error :S</string>
-    <string name="tts_started">TTS started!</string>
+    <string name="tts_initialized">TTS iniciado</string>
+    <string name="please_install_tts">No tienes instalado TTs, instalalo de Google Play</string>
+    <string name="tts_done">Sintetizacion de voz compleatada</string>
+    <string name="tts_error">Ha ocurrido un error</string>
+    <string name="tts_started">TTS iniciado</string>
 </resources>
