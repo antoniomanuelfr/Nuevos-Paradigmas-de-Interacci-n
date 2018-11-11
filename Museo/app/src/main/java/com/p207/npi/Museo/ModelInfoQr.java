@@ -1,7 +1,8 @@
 package com.p207.npi.Museo;
 
-    import android.arch.lifecycle.ViewModel;
-
+import android.arch.lifecycle.ViewModel;
+/*
+* Uso de modelView para pasar info de un fragment a otro, como se recomienda en android developers*/
 class ModelInfoQr extends ViewModel {
 
     private String URL;

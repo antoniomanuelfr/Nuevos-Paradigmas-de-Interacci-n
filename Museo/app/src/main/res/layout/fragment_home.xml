@@ -29,11 +29,11 @@
                     android:id="@+id/boton_jon"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:alpha="0.85"
-                    android:text="@string/jon"
                     android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:text="@string/jon"
                     android:textColor="@color/aidialog_background"
                     app:backgroundTint="@color/common_google_signin_btn_text_light_default" />
 
@@ -41,11 +41,11 @@
                     android:id="@+id/boton_daenerys"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:alpha="0.80"
-                    android:text="@string/daenerys"
                     android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:text="@string/daenerys"
                     android:textColor="@color/common_google_signin_btn_text_light_default"
                     app:backgroundTint="@color/red500" />
 
@@ -64,11 +64,11 @@
                     android:id="@+id/boton_tyrion"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:alpha="0.70"
-                    android:text="@string/tyrion"
                     android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:text="@string/tyrion"
                     android:textColor="@color/zxing_viewfinder_laser"
                     app:backgroundTint="@color/common_google_signin_btn_text_dark_focused" />
 
@@ -76,11 +76,11 @@
                     android:id="@+id/boton_acero"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:alpha="0.80"
-                    android:text="@string/acero"
                     android:drawableLeft="@android:drawable/ic_menu_info_details"
+                    android:text="@string/acero"
                     android:textColor="@color/common_google_signin_btn_text_light_pressed"
                     app:backgroundTint="@color/default_right_bubble_color" />
 
@@ -99,11 +99,11 @@
                     android:id="@+id/boton_stark"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:alpha="0.85"
-                    android:text="@string/stark"
                     android:drawableLeft="@android:drawable/ic_menu_compass"
+                    android:text="@string/stark"
                     android:textColor="@color/aidialog_background"
                     app:backgroundTint="@color/zxing_custom_viewfinder_laser" />
 
@@ -111,11 +111,11 @@
                     android:id="@+id/boton_targaryen"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:alpha="0.80"
-                    android:text="@string/targaryen"
                     android:drawableLeft="@android:drawable/ic_menu_compass"
+                    android:text="@string/targaryen"
                     android:textColor="@color/common_google_signin_btn_text_light_default"
                     app:backgroundTint="@color/red500" />
 
@@ -134,25 +134,26 @@
                     android:id="@+id/boton_lannister"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:alpha="0.70"
-                    android:text="@string/lannister"
                     android:drawableLeft="@android:drawable/ic_menu_compass"
+                    android:text="@string/lannister"
+                    android:textColor="@color/zxing_viewfinder_laser"
+                    app:backgroundTint="@color/common_google_signin_btn_text_dark_focused" />
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_cersei"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:alpha="0.70"
+                    android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:text="@string/cersei"
                     android:textColor="@color/zxing_viewfinder_laser"
                     app:backgroundTint="@color/common_google_signin_btn_text_dark_focused" />
 
-                <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/boton_mapa"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:alpha="0.85"
-                    android:text="Mapa"
-                    android:drawableLeft="@android:drawable/ic_dialog_map"
-                    android:textColor="@color/aidialog_background"
-                    app:backgroundTint="@color/zxing_possible_result_points" />
+
 
             </LinearLayout>
 
@@ -169,11 +170,11 @@
                     android:id="@+id/boton_caminantes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:alpha="0.85"
-                    android:text="@string/caminantes"
                     android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:text="@string/caminantes"
                     android:textColor="@color/aidialog_background"
                     app:backgroundTint="@color/blueGray500" />
 
@@ -181,11 +182,11 @@
                     android:id="@+id/boton_dragones"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:alpha="0.85"
-                    android:text="@string/dragones"
                     android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:text="@string/dragones"
                     android:textColor="@color/blueGray500"
                     app:backgroundTint="@color/design_default_color_primary_dark" />
 
@@ -204,29 +205,20 @@
                     android:id="@+id/boton_vidriagon"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:alpha="1.0"
-                    android:text="@string/vidriagon"
                     android:drawableLeft="@android:drawable/ic_menu_info_details"
+                    android:text="@string/vidriagon"
                     android:textColor="@color/default_left_bubble_color"
                     app:backgroundTint="@color/zxing_result_view" />
 
-                <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/boton_cersei"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:alpha="0.70"
-                    android:text="@string/cersei"
-                    android:drawableLeft="@android:drawable/ic_menu_myplaces"
-                    android:textColor="@color/zxing_viewfinder_laser"
-                    app:backgroundTint="@color/common_google_signin_btn_text_dark_focused" />
+
 
             </LinearLayout>
 
             <View style="@style/Divider" />
+
             <View style="@style/Divider" />
 
         </LinearLayout>

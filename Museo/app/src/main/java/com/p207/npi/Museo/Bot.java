@@ -206,6 +206,7 @@ public class Bot extends Fragment implements View.OnClickListener {
         new AiTask().execute(queryString, eventString, contextString);
      }
 
+    /*Inicio en una hebra para la integracion con DialogFlow*/
     @SuppressLint("StaticFieldLeak")
     public class AiTask extends AsyncTask<String, Void, AIResponse> {
 
@@ -328,6 +329,8 @@ public class Bot extends Fragment implements View.OnClickListener {
             @Override
             public void onIconClick(@NotNull Message message) {
                 // Empty
+                /*Este metodo esta vacio porque si no, si pinchamos en la burbuja del chat
+                * ocurre un error*/
             }
 
         });
@@ -365,7 +368,7 @@ public class Bot extends Fragment implements View.OnClickListener {
                 lang, AIConfiguration.RecognitionEngine.System);
         aiDataService = new AIDataService(Objects.requireNonNull(getActivity()), config);
     }
-
+    /*Metodo para añadir mensajees manualmente*/
     void addMessage(String message, int side, User user){
         Message StartMessage = new Message.Builder()
                 .setUser(user)

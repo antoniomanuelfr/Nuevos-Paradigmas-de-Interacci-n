@@ -110,9 +110,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             case R.id.boton_acero:
                 modelView.setName(getString(R.string.acero));
                 break;
-            case R.id.boton_mapa:
-                Intent intent = new Intent (getActivity(), MapaPoniente.class);
-                startActivity(intent);
+
 
         }
         allowBack = false;
