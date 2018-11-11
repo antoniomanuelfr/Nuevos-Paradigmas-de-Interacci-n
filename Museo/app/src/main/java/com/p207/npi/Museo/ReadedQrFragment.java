@@ -70,7 +70,15 @@ public class ReadedQrFragment extends Fragment {
                     }
                     break;
                 case R.id.info_button_from_qr:
-                    Toast.makeText(getActivity(), "Illo berni funiona", Toast.LENGTH_LONG).show();
+                    infoPersonaje infoPersonaje = ViewModelProviders.of(Objects.requireNonNull(getActivity())).get(infoPersonaje.class);
+                    infoPersonaje.setName(Name);
+                    BottomNavigationView nav2 = getActivity().findViewById(R.id.navigation);
+                    nav2.setSelectedItemId(R.id.navigation_home);
+                    Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.mainContainer,new PersonajeFragment())
+                            .commit();
+
+
                     break;
                 case R.id.go_wiki_from_qr:
 
