@@ -18,31 +18,75 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/boton1"/>
+                android:id="@+id/boton_jon"
+                android:text="@string/jon"
+
+                />
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/boton2"/>
+                android:id="@+id/boton_daenerys"
+                android:text="@string/daenerys"
+                />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/boton3"/>
+                android:id="@+id/boton_cersei"
+                android:text="@string/cersei"
+                />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/boton4"/>
+                android:id="@+id/boton_tyrion"
+                android:text="@string/tyrion"
+                />
+
+            <Button
+                android:id="@+id/boton_stark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stark" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/boton5"/>
+                android:id="@+id/boton_targaryen"
+                android:text="@string/targaryen"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/boton_lannister"
+                android:text="@string/lannister"
+                />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/boton6"/>
+                android:id="@+id/boton_caminantes"
+                android:text="@string/caminantes"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/boton_dragones"
+                android:text="@string/dragones"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/boton_vidriagon"
+                android:text="@string/Vidriagon"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/boton_acero"
+                android:text="@string/acero"
+                />
+
 
             <View style="@style/Divider" />
 

@@ -68,6 +68,7 @@ public class RichTTS extends Activity implements TextToSpeech.OnInitListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         // Set up the speak button
         // Invoke the method to initialize text to speech
         initTTS();

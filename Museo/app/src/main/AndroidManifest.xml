@@ -31,7 +31,6 @@
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -40,7 +39,9 @@
             android:screenOrientation="portrait" />
 
         <activity android:name=".MapaPoniente" />
-        <activity android:name=".RichTTS" />
+        <activity android:name=".RichTTS"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            />
 
     </application>
 
