@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
 
                     Fragment prevHome = manager.findFragmentByTag(HomeFragment.class.getName());
-
+                    HomeFragment.allowBack=true;
                     if (prevHome == null) {
                         transaction.replace(R.id.mainContainer, new HomeFragment(), HomeFragment.class.getName());
                         transaction.addToBackStack(HomeFragment.class.getName());
@@ -119,31 +119,32 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         BottomNavigationView nav = findViewById(R.id.navigation);
         int seletedItemId = nav.getSelectedItemId();
+        if (HomeFragment.allowBack) {
+            if (R.id.navigation_home == seletedItemId) {
+                if (!salir) {
+                    Toast.makeText(this, "Pulse otra vez para salir", Toast.LENGTH_LONG).show();
+                    salir = true;
 
-        if (R.id.navigation_home == seletedItemId){
-            if (!salir){
-                Toast.makeText(this, "Pulse otra vez para salir", Toast.LENGTH_LONG).show();
-                salir =true;
+                } else
+                    finish();
 
-            }else
-                finish();
+            } else {
 
-        }else {
+                nav.setSelectedItemId(R.id.navigation_home);
+                FragmentManager Manager = getSupportFragmentManager();
+                Fragment HomeFragment = Manager.findFragmentByTag(HomeFragment.class.getName());
+                FragmentTransaction transaction = Manager.beginTransaction();
 
-            nav.setSelectedItemId(R.id.navigation_home);
-            FragmentManager Manager = getSupportFragmentManager();
-            Fragment HomeFragment = Manager.findFragmentByTag(HomeFragment.class.getName());
-            FragmentTransaction transaction = Manager.beginTransaction();
+                if (HomeFragment == null) {
 
-            if (HomeFragment==null){
-
-                transaction.replace(R.id.mainContainer, new HomeFragment(), HomeFragment.class.getName());
-                transaction.addToBackStack(Bot.class.getName());
-                transaction.commit();
-                }else{
-                    transaction.replace(R.id.mainContainer,HomeFragment);
+                    transaction.replace(R.id.mainContainer, new HomeFragment(), HomeFragment.class.getName());
+                    transaction.addToBackStack(Bot.class.getName());
+                    transaction.commit();
+                } else {
+                    transaction.replace(R.id.mainContainer, HomeFragment);
                     transaction.commit();
 
+                }
             }
         }
     }

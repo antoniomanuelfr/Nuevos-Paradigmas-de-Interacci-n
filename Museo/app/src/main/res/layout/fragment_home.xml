@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/boton_vidriagon"
-                android:text="@string/Vidriagon"
+                android:text="@string/vidriagon"
                 />
             <Button
                 android:layout_width="wrap_content"

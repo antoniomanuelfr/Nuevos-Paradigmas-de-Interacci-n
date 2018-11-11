@@ -14,14 +14,15 @@
     <string name="qr_introduction">En la parte inferior de cada estatua de la exposicion, hay un
         codigo QR el cual si lo escaneas pulsando el botón inferior podras tener más información
         sobre el personaje.</string>
+
     <string name="jon">Jon Nieve</string>
-    <string name="explicacion_jon">Lord Jon Nieve es el Lord Comandante de la Guardia de la Noche
+    <string name="explicacion_jon_nieve">Lord Jon Nieve es el Lord Comandante de la Guardia de la Noche
         nº 998. Es hijo bastardo de Lord Eddard Stark. Su lobo huargo, Fantasma, es albino y mudo.
         El emblema personal de Jon consiste en los colores de la Casa Stark invertidos,
         un lobo huargo de plata corriendo sobre fondo de cenizo.</string>
 
     <string name="daenerys">Daenerys Targaryen</string>
-    <string name="expicacion_daenerys">a reina Daenerys Targaryen, también llamada Daenerys de
+    <string name="expicacion_daenerys_targaryen">a reina Daenerys Targaryen, también llamada Daenerys de
         la Tormenta, La que no Arde, Rompedora de Cadenas, Madre de Dragones y, de manera más
         informal, Dany, es la hija menor del rey Aerys II Targaryen y su hermana esposa, la reina
         Rhaella. Luego de la Guerra del Usurpador, durante la que murieron sus padres y su hermano
@@ -29,32 +30,32 @@
         Luego de arrasar la Bahía de los Esclavos, se convirtió en Reina de Meereen. </string>
 
     <string name="tyrion">Tyrion Lannister</string>
-    <string name="explicacion_tyrion">Tyrion Lannister es el tercer hijo de Lord Tywin Lannister y
+    <string name="explicacion_tyrion_lannister">Tyrion Lannister es el tercer hijo de Lord Tywin Lannister y
         Lady Joanna Lannister, y hermano menor de los mellizos Cersei y Jaime.
         Es apodado el Gnomo y Mediohombre debido a su enanismo. </string>
 
     <string name="cersei">Cersei Lannister</string>
-    <string name="explicacion_cersei">La reina Cersei Lannister es la hija mayor de Lord
+    <string name="explicacion_cersei_lannister">La reina Cersei Lannister es la hija mayor de Lord
         Tywin Lannister y Lady Joanna Lannister. Tiene dos hermanos, su mellizo Jaime y su
         hermano menor Tyrion. Tras la Guerra del Usurpador se casó con el nuevo rey, Robert
         Baratheon, y se convirtió en Reina de los Siete Reinos. Es madre de tres hijos, Joffrey,
         Myrcella y Tommen, todos fruto de su secreta relación incestuosa con su hermano Jaime. </string>
 
     <string name="stark">Familia Stark</string>
-    <string name="explicacion_stark">La Casa Stark de Invernalia es una casa noble del Norte.
+    <string name="explicacion_familia_stark">La Casa Stark de Invernalia es una casa noble del Norte.
         Su asentamiento es Invernalia. Durante siglos, fue la casa principal del Norte y su linaje
         se extiende hasta los Primeros Hombres, gobernando el Norte como reyes por derecho propio.
         Su emblema es un lobo huargo de cenizo corriendo sobre campo de plata.[1] Su lema es Se
         acerca el Invierno. Su mandoble ancestral de acero valyrio se llamaba Hielo. </string>
 
     <string name="lannister">Familia Lannister</string>
-    <string name="explicacion_lannister">La Casa Lannister de Roca Casterly es la principal casa
+    <string name="explicacion_familia_lannister">La Casa Lannister de Roca Casterly es la principal casa
         noble de las Tierras del Oeste. Su asentamiento es Roca Casterly. Su emblema es un león
         rampante de oro sobre campo de gules. Su lema es ¡Oye mi Rugido!, aunque su lema no oficial,
         Un Lannister siempre paga sus deudas, es más conocido.</string>
 
     <string name="targaryen">Familia Targaryen</string>
-    <string name="explicacion_targaryen">La Casa Targaryen es una casa noble de ascendencia Valyria
+    <string name="explicacion_familia_targaryen">La Casa Targaryen es una casa noble de ascendencia Valyria
         que escapó de la Maldición. Sus asentamientos eran la capital del reino Desembarco del Rey,
         la isla de Rocadragón y el castillo de Refugio Estival. Su emblema es un dragón de tres
         cabezas de gules en campo sable, representando a Aegon I y sus hermanas Rhaenys y Visenya.
@@ -78,13 +79,13 @@
         Los dragones aparecen en diversos emblemas de casas nobles, como la Casa Targaryen,
         la Casa Fuegoscuro, la Casa Toland, la Casa Vance y la Casa Willum. </string>
 
-    <string name="Vidriagon">Vidriagon</string>
+    <string name="vidriagon">Vidriagon</string>
     <string name="explicacion_vidriagon">El vidriagón, también llamado Vidrio de Dragón,
         es un vidrio volcánico también conocido como obsidiana. Significa "Fuego helado",
         en la lengua de la antigua Valyria. </string>
 
     <string name="acero">Acero Valyrio</string>
-    <string name="explicacion_acero">El acero valyrio es una aleación metálica inventada en Valyria
+    <string name="explicacion_acero_valyrio">El acero valyrio es una aleación metálica inventada en Valyria
         y usada en la fabricación de armas de calidad incomparable. </string>
 
     <string name="non_empty_query">Non empty query</string>

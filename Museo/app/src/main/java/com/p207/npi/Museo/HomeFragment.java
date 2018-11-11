@@ -1,20 +1,29 @@
 package com.p207.npi.Museo;
 
+    import android.arch.lifecycle.ViewModelProviders;
     import android.os.Bundle;
     import android.support.annotation.NonNull;
     import android.support.annotation.Nullable;
     import android.support.v4.app.Fragment;
+    import android.support.v4.app.FragmentManager;
+    import android.support.v4.app.FragmentTransaction;
     import android.view.LayoutInflater;
     import android.view.View;
     import android.view.ViewGroup;
     import android.widget.Button;
     import android.widget.Toast;
 
+    import java.util.Objects;
+
 public class HomeFragment extends Fragment implements View.OnClickListener{
+
+    static boolean allowBack = true;
 
     public HomeFragment() {
         // Empty
     }
+
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -25,7 +34,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button a = getActivity().findViewById(R.id.boton_jon);
+        Button a = Objects.requireNonNull(getActivity()).findViewById(R.id.boton_jon);
         a.setOnClickListener(this);
         Button b = getActivity().findViewById(R.id.boton_daenerys);
         b.setOnClickListener(this);
@@ -50,31 +59,62 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        infoPersonaje modelView = ViewModelProviders.of(Objects.requireNonNull(getActivity())).get(infoPersonaje.class);
+        Fragment Personaje = new PersonajeFragment();
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+
 
         switch (v.getId()){
 
             case R.id.boton_jon:
+                modelView.setName(getString(R.string.jon));
+                break;
 
             case R.id.boton_daenerys:
+                modelView.setName(getString(R.string.daenerys));
+                break;
 
             case R.id.boton_cersei:
+                modelView.setName(getString(R.string.cersei));
+                break;
 
             case R.id.boton_tyrion:
+                modelView.setName(getString(R.string.tyrion));
+                break;
+
 
             case R.id.boton_stark:
+                modelView.setName(getString(R.string.stark));
+                break;
 
             case R.id.boton_targaryen:
+                modelView.setName(getString(R.string.targaryen));
+                break;
 
             case R.id.boton_lannister:
+                modelView.setName(getString(R.string.lannister));
+                break;
 
             case R.id.boton_caminantes:
+                modelView.setName(getString(R.string.caminantes));
+                break;
 
             case R.id.boton_dragones:
+                modelView.setName(getString(R.string.dragones));
+                break;
 
             case R.id.boton_vidriagon:
+                modelView.setName(getString(R.string.vidriagon));
+                break;
+            case R.id.boton_acero:
+                modelView.setName(getString(R.string.acero));
+                break;
 
         }
-
+        allowBack = false;
+        transaction.replace(R.id.mainContainer,Personaje, PersonajeFragment.class.getName());
+        transaction.commit();
     }
 }
 

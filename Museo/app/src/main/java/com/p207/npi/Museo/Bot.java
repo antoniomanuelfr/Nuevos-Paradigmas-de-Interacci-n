@@ -286,7 +286,7 @@ public class Bot extends Fragment implements View.OnClickListener {
 
     private void initChatView(View Vista) {
         int myId = 0;
-        Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.tyrion);
+        Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.tyrion_lannister);
         String myName = "Visitante del Museo";
         myAccount = new User(myId, myName, icon);
         int botId = 1;
