@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,87 +12,223 @@
         tools:context="mobi.garden.bottomnavigationtest.HomeActivity">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/boton_jon"
-                android:text="@string/jon"
-
-                />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/boton_daenerys"
-                android:text="@string/daenerys"
-                />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/boton_cersei"
-                android:text="@string/cersei"
-                />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/boton_tyrion"
-                android:text="@string/tyrion"
-                />
-
-            <Button
-                android:id="@+id/boton_stark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/stark" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/boton_targaryen"
-                android:text="@string/targaryen"
-                />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/boton_lannister"
-                android:text="@string/lannister"
-                />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/boton_caminantes"
-                android:text="@string/caminantes"
-                />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/boton_dragones"
-                android:text="@string/dragones"
-                />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/boton_vidriagon"
-                android:text="@string/vidriagon"
-                />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/boton_acero"
-                android:text="@string/acero"
-                />
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <View style="@style/Divider" />
 
-        </LinearLayout>
-    </ScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_jon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="0.85"
+                    android:text="@string/jon"
+                    android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:textColor="@color/aidialog_background"
+                    app:backgroundTint="@color/common_google_signin_btn_text_light_default" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_daenerys"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="0.80"
+                    android:text="@string/daenerys"
+                    android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:textColor="@color/common_google_signin_btn_text_light_default"
+                    app:backgroundTint="@color/red500" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_tyrion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="0.70"
+                    android:text="@string/tyrion"
+                    android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:textColor="@color/zxing_viewfinder_laser"
+                    app:backgroundTint="@color/common_google_signin_btn_text_dark_focused" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_acero"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="0.80"
+                    android:text="@string/acero"
+                    android:drawableLeft="@android:drawable/ic_menu_info_details"
+                    android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                    app:backgroundTint="@color/default_right_bubble_color" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_stark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="0.85"
+                    android:text="@string/stark"
+                    android:drawableLeft="@android:drawable/ic_menu_compass"
+                    android:textColor="@color/aidialog_background"
+                    app:backgroundTint="@color/zxing_custom_viewfinder_laser" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_targaryen"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="0.80"
+                    android:text="@string/targaryen"
+                    android:drawableLeft="@android:drawable/ic_menu_compass"
+                    android:textColor="@color/common_google_signin_btn_text_light_default"
+                    app:backgroundTint="@color/red500" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_lannister"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="0.70"
+                    android:text="@string/lannister"
+                    android:drawableLeft="@android:drawable/ic_menu_compass"
+                    android:textColor="@color/zxing_viewfinder_laser"
+                    app:backgroundTint="@color/common_google_signin_btn_text_dark_focused" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_mapa"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="0.85"
+                    android:text="Mapa"
+                    android:drawableLeft="@android:drawable/ic_dialog_map"
+                    android:textColor="@color/aidialog_background"
+                    app:backgroundTint="@color/zxing_possible_result_points" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_caminantes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="0.85"
+                    android:text="@string/caminantes"
+                    android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:textColor="@color/aidialog_background"
+                    app:backgroundTint="@color/blueGray500" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_dragones"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="0.85"
+                    android:text="@string/dragones"
+                    android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:textColor="@color/blueGray500"
+                    app:backgroundTint="@color/design_default_color_primary_dark" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_vidriagon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="1.0"
+                    android:text="@string/vidriagon"
+                    android:drawableLeft="@android:drawable/ic_menu_info_details"
+                    android:textColor="@color/default_left_bubble_color"
+                    app:backgroundTint="@color/zxing_result_view" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/boton_cersei"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:alpha="0.70"
+                    android:text="@string/cersei"
+                    android:drawableLeft="@android:drawable/ic_menu_myplaces"
+                    android:textColor="@color/zxing_viewfinder_laser"
+                    app:backgroundTint="@color/common_google_signin_btn_text_dark_focused" />
+
+            </LinearLayout>
+
+            <View style="@style/Divider" />
+            <View style="@style/Divider" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </FrameLayout>

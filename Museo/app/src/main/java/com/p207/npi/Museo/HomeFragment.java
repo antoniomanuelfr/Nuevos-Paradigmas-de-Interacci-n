@@ -1,19 +1,19 @@
 package com.p207.npi.Museo;
 
     import android.arch.lifecycle.ViewModelProviders;
-    import android.os.Bundle;
-    import android.support.annotation.NonNull;
-    import android.support.annotation.Nullable;
-    import android.support.v4.app.Fragment;
-    import android.support.v4.app.FragmentManager;
-    import android.support.v4.app.FragmentTransaction;
-    import android.view.LayoutInflater;
-    import android.view.View;
-    import android.view.ViewGroup;
-    import android.widget.Button;
-    import android.widget.Toast;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
-    import java.util.Objects;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
@@ -110,6 +110,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             case R.id.boton_acero:
                 modelView.setName(getString(R.string.acero));
                 break;
+            case R.id.boton_mapa:
+                Intent intent = new Intent (getActivity(), MapaPoniente.class);
+                startActivity(intent);
 
         }
         allowBack = false;
