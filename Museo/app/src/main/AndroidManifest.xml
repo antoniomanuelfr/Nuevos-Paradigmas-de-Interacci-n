@@ -9,6 +9,8 @@
     <uses-permission
         android:name="android.permission.INTERNET"
         android:required="true" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"
+        android:required="true"/>
 
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
@@ -42,6 +44,7 @@
         <activity android:name=".RichTTS"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             />
+        <activity android:name=".RichASR" />
 
     </application>
 

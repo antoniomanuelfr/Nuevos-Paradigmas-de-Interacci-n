@@ -104,6 +104,8 @@ public class Bot extends Fragment implements View.OnClickListener {
                 return true;
 
             case R.id.record:
+                Intent intentRecord = new Intent(getActivity(),RichASR.class);
+                startActivityForResult(intentRecord, RichASR.REQUEST_RECORD);
 
                 return true;
         }
@@ -116,10 +118,24 @@ public class Bot extends Fragment implements View.OnClickListener {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==RichTTS.REQUESTSPEACH){
-            if(resultCode==RichTTS.NO_LANGUAGE){
-                addMessage("No tienes el idioma español de España instalado, instalalo por favor", 0, TyrionBot);
-            }
+        switch (requestCode){
+            case RichTTS.REQUESTSPEACH:
+                if(resultCode==RichTTS.NO_LANGUAGE){
+                    addMessage("No tienes el idioma español de España instalado, instalalo por favor", 0, TyrionBot);
+                }
+                break;
+
+            case RichASR.REQUEST_RECORD:
+                if(resultCode==RichASR.RESULT_OK) {
+                    if (data != null) {
+                        Bundle b = data.getExtras();
+                        String s;
+                        if (b != null) {
+                            s = b.getString("Reconocido");
+                            chatView.setInputText(s);
+                        }
+                    }
+                }
 
         }
 

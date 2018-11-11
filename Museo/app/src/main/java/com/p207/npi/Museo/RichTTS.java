@@ -54,7 +54,7 @@ public class RichTTS extends Activity implements TextToSpeech.OnInitListener{
     private final static int TTS_DATA_CHECK = 12;    // Request code to identify the intent that looks for a TTS Engine in the device
     private final static String LOGTAG = "RichTTS";
     static String TEXTTAG = "TextoTTS";
-    static int REQUESTSPEACH = 32;
+    final static int REQUESTSPEACH = 32;
     public static int RESULT_OK = 1;
     public static int NO_LANGUAGE =- 1;
 
@@ -76,6 +76,7 @@ public class RichTTS extends Activity implements TextToSpeech.OnInitListener{
 
     private void speakText (String text) {
         Locale espa = new Locale("spa", "ESP");
+
         if (mytts.isLanguageAvailable(espa)>=0) {
             mytts.setLanguage(espa);
             mytts.setPitch(0.6544f);
