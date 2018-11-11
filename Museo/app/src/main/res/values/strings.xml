@@ -15,22 +15,22 @@
         codigo QR el cual si lo escaneas pulsando el botón inferior podras tener más información
         sobre el personaje.</string>
 
-    <string name="explicacion_jon"> </string>
-    <string name="expicacion_daenerys"> </string>
-    <string name="explicacion_tyrion"> </string>
-    <string name="explicacion_cersei"> </string>
+    <string name="explicacion_jon">Jon Snow</string>
+    <string name="explicacion_daenerys">Daenerys Targaryen</string>
+    <string name="explicacion_tyrion">Tyrion Lannister</string>
+    <string name="explicacion_cersei">Cersei Lannister</string>
 
-    <string name="explicacion_stark"> </string>
-    <string name="explicacion_lannister"> </string>
-    <string name="explicacion_targaryen"> </string>
+    <string name="explicacion_stark">Casa Stark</string>
+    <string name="explicacion_lannister">Casa Lannister</string>
+    <string name="explicacion_targaryen">Casa Targaryen</string>
 
-    <string name="explicacion_mapa"> </string>
+    <string name="explicacion_mapa">Mapa Westeros</string>
 
-    <string name="explicacion_caminantes_blancos"> </string>
-    <string name="explicacion_dragones"> </string>
+    <string name="explicacion_caminantes_blancos">Caminantes Blancos</string>
+    <string name="explicacion_dragones">Dragones</string>
 
-    <string name="explicacion_vidriagon"> </string>
-    <string name="explicacion_acero"> </string>
+    <string name="explicacion_vidriagon">Vidriagon</string>
+    <string name="explicacion_acero">Acero Valyrio</string>
 
     <string name="non_empty_query">Non empty query</string>
 

@@ -34,6 +34,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'ai.api:sdk:2.0.7@aar'
     implementation 'ai.api:libai:1.6.12'
-
     implementation 'com.github.bassaer:chatmessageview:1.8.6'
 }
