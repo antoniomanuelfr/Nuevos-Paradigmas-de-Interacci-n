@@ -1,0 +1,17 @@
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.dll
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.pdb
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.dll.CodeAnalysisLog.xml
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.dll.lastcodeanalysissucceeded
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.dll
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.xml
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.csprojAssemblyReference.cache
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\obj\Debug\KinectSensorChooserUI.baml
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\obj\Debug\KinectSensorChooserUI.g.cs
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit_MarkupCompile.cache
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.g.resources
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.Properties.Resources.resources
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.csproj.GenerateResource.cache
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.csproj.CoreCompileInputs.cache
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.csproj.CopyComplete
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.dll
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.pdb

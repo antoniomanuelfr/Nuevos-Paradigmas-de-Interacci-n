@@ -1,0 +1,14 @@
+E:\Nueva carpeta\ControlsBasics-WPF\.Debug\KinectInteraction180_32.dll
+E:\Nueva carpeta\ControlsBasics-WPF\.Debug\KinectInteraction180_64.dll
+E:\Nueva carpeta\ControlsBasics-WPF\.Debug\Microsoft.Kinect.Toolkit.Controls.dll
+E:\Nueva carpeta\ControlsBasics-WPF\.Debug\Microsoft.Kinect.Toolkit.Controls.pdb
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.csprojAssemblyReference.cache
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit.Controls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls_MarkupCompile.cache
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls_MarkupCompile.lref
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Themes\Generic.baml
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.g.resources
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.csproj.CoreCompileInputs.cache
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.csproj.CopyComplete
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.dll
+E:\Nueva carpeta\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.pdb
