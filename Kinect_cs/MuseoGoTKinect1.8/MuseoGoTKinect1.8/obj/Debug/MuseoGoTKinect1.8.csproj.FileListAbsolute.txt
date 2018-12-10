@@ -1,0 +1,15 @@
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\bin\Debug\MuseoGoTKinect1.8.exe.config
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\bin\Debug\MuseoGoTKinect1.8.exe
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\bin\Debug\MuseoGoTKinect1.8.pdb
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\MuseoGoTKinect1.8.csprojAssemblyReference.cache
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\MainWindow.g.cs
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\App.g.cs
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\MuseoGoTKinect1.8_MarkupCompile.cache
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\MuseoGoTKinect1.8_MarkupCompile.lref
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\MainWindow.baml
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\MuseoGoTKinect1.8.g.resources
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\MuseoGoTKinect1._8.Properties.Resources.resources
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\MuseoGoTKinect1.8.csproj.GenerateResource.cache
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\MuseoGoTKinect1.8.csproj.CoreCompileInputs.cache
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\MuseoGoTKinect1.8.exe
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinect1.8\MuseoGoTKinect1.8\obj\Debug\MuseoGoTKinect1.8.pdb
