@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush x:Name="Fondo" ImageSource="Images\map.jpg"/>
+            <ImageBrush x:Name="Fondo" ImageSource="Images\fondo.png"/>
         </Grid.Background>
         
     </Grid>

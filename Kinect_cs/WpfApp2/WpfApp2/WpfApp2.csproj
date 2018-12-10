@@ -97,8 +97,5 @@
   <ItemGroup>
     <Resource Include="Images\fondo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\map.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
