@@ -119,8 +119,8 @@
 
         <k:KinectRegion Grid.Row="1" x:Name="kinectRegion">
             <Grid x:Name="kinectRegionGrid" Margin="10,20,10,20">
-                <local:KinectHoverButton Style="{StaticResource KinectHoverButtonScrollLeftStyle}" Click="PageLeftButtonClick" IsEnabled="{Binding ElementName=ControlsBasicsWindow, Path=PageLeftEnabled}" Margin="56,-50,1458,204"/>
-                <local:KinectHoverButton Style="{StaticResource KinectHoverButtonScrollRightStyle}" Click="PageRightButtonClick" IsEnabled="{Binding ElementName=ControlsBasicsWindow, Path=PageRightEnabled}" Margin="708,280,72,296"/>
+                <k:KinectTileButton x:Name="left" Background="White" Opacity="0.2" Click="KinectTileButtonClick"  Margin="133,10,1461,275" Height="Auto" Width="Auto"/>
+                <k:KinectTileButton x:Name="right" Background="White" Opacity="0.2" Click="KinectTileButtonClick" Margin="601,270,10,220" Width="Auto" Height="Auto"/>
             </Grid>
         </k:KinectRegion>
     </Grid>

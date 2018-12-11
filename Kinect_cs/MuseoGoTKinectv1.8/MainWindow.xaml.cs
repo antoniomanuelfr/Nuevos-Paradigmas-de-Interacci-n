@@ -208,18 +208,19 @@ namespace Microsoft.Samples.Kinect.GOT
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
             var button = (KinectTileButton)e.OriginalSource;
-            var selectionDisplay = new SelectionDisplay(button.Label as string);
-            this.kinectRegionGrid.Children.Add(selectionDisplay);
-            e.Handled = true;
+            /* var selectionDisplay = new SelectionDisplay(button.Label as string);
+             this.kinectRegionGrid.Children.Add(selectionDisplay);
+             e.Handled = true;*/
         }
 
-        /// <summary>
-        /// Handle paging right (next button).
-        /// </summary>
-        /// <param name="sender">Event sender</param>
-        /// <param name="e">Event arguments</param>
-        private void PageRightButtonClick(object sender, RoutedEventArgs e)
+            /// <summary>
+            /// Handle paging right (next button).
+            /// </summary>
+            /// <param name="sender">Event sender</param>
+            /// <param name="e">Event arguments</param>
+            private void PageRightButtonClick(object sender, RoutedEventArgs e)
         {
+
         }
 
         /// <summary>
