@@ -27,6 +27,8 @@ namespace Microsoft.Samples.Kinect.GOT
         /// Active Kinect sensor
         /// </summary>
         private KinectSensor sensor;
+        const int skeletonCount = 6;
+        Skeleton[] allSkeletons = new Skeleton[skeletonCount];
 
         public static readonly DependencyProperty PageLeftEnabledProperty = DependencyProperty.Register(
             "PageLeftEnabled", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
@@ -56,6 +58,16 @@ namespace Microsoft.Samples.Kinect.GOT
             // Bind the sensor chooser's current sensor to the KinectRegion
             var regionSensorBinding = new Binding("Kinect") { Source = this.sensorChooser };
             BindingOperations.SetBinding(this.kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
+
+        }
+        /// <summary>
+        /// Execute startup tasks
+        /// </summary>
+        /// <param name="sender">object sending the event</param>
+        /// <param name="e">event arguments</param>
+        private void WindowLoaded(object sender, RoutedEventArgs e)
+        {
+
             // Look through all sensors and start the first connected one.
             // This requires that a Kinect is connected at the time of app startup.
             // To make your app robust against plug/unplug, 
@@ -73,8 +85,10 @@ namespace Microsoft.Samples.Kinect.GOT
             {
                 // Turn on the skeleton stream to receive skeleton frames
                 this.sensor.SkeletonStream.Enable();
+
                 // Add an event handler to be called whenever there is new color frame data
                 this.sensor.SkeletonFrameReady += this.SensorSkeletonFrameReady;
+
                 this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
                 // Start the sensor!
                 try
@@ -86,8 +100,22 @@ namespace Microsoft.Samples.Kinect.GOT
                     this.sensor = null;
                 }
             }
-
         }
+
+        /// <summary>
+        /// Execute shutdown tasks
+        /// </summary>
+        /// <param name="sender">object sending the event</param>
+        /// <param name="e">event arguments</param>
+        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (null != this.sensor)
+            {
+                this.sensor.Stop();
+            }
+        }
+        
+        
         /// <summary>
         /// Event handler for Kinect sensor's SkeletonFrameReady event
         /// </summary>
@@ -107,8 +135,39 @@ namespace Microsoft.Samples.Kinect.GOT
                     skeletonFrame.CopySkeletonDataTo(skeletons);
                 }
             }
+            if (skeletons.Length != 0)
+            {
+                foreach (Skeleton skel in skeletons)
+                {
+                    if (skel.TrackingState == SkeletonTrackingState.Tracked)
+                    {
+                        Gestures(skel);
+                    }
+                    else if (skel.TrackingState == SkeletonTrackingState.PositionOnly)
+                    {
+                    }
+                    else
+                    {
+                    }
+                }
+            }
+
+
         }
-        /// <summary>
+
+        /// <sumary>
+        /// Gestures detection
+        /// </sumary>
+        /// <param> </param>
+        /// 
+        private void Gestures(Skeleton sk)
+        {
+            int a = 0;
+        }    
+
+
+
+    
         /// CLR Property Wrappers for PageLeftEnabledProperty
         /// </summary>
         public bool PageLeftEnabled
@@ -191,16 +250,6 @@ namespace Microsoft.Samples.Kinect.GOT
         }
 
         /// <summary>
-        /// Execute shutdown tasks
-        /// </summary>
-        /// <param name="sender">object sending the event</param>
-        /// <param name="e">event arguments</param>
-        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            this.sensorChooser.Stop();
-        }
-
-        /// <summary>
         /// Handle a button click from the wrap panel.
         /// </summary>
         /// <param name="sender">Event sender</param>
@@ -220,7 +269,7 @@ namespace Microsoft.Samples.Kinect.GOT
             /// <param name="e">Event arguments</param>
             private void PageRightButtonClick(object sender, RoutedEventArgs e)
         {
-
+                
         }
 
         /// <summary>
