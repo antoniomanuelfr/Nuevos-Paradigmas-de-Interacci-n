@@ -15,6 +15,7 @@
         MinWidth="1920"
         MinHeight="1080"
         FontFamily="Segoe UI"
+        WindowState="Maximized"
         >
 
     <Window.Resources>
