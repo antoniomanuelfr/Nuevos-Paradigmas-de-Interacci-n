@@ -15,19 +15,3 @@ D:\Documentos\Proyectos kinect\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kine
 D:\Documentos\Proyectos kinect\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.csproj.CopyComplete
 D:\Documentos\Proyectos kinect\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.dll
 D:\Documentos\Proyectos kinect\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.pdb
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.dll
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.pdb
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.dll.CodeAnalysisLog.xml
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.dll.lastcodeanalysissucceeded
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.dll
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.xml
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\obj\Debug\KinectSensorChooserUI.baml
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\obj\Debug\KinectSensorChooserUI.g.cs
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit_MarkupCompile.cache
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.g.resources
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.Properties.Resources.resources
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.csproj.GenerateResource.cache
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.csproj.CoreCompileInputs.cache
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.csproj.CopyComplete
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.dll
-D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.pdb
