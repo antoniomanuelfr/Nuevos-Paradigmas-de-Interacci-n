@@ -16,3 +16,16 @@ D:\Documentos\Proyectos kinect\ControlsBasics-WPF\.Debug\KinectInteraction180_32
 D:\Documentos\Proyectos kinect\ControlsBasics-WPF\.Debug\KinectInteraction180_64.dll
 D:\Documentos\Proyectos kinect\ControlsBasics-WPF\.Debug\Microsoft.Kinect.Toolkit.Controls.dll
 D:\Documentos\Proyectos kinect\ControlsBasics-WPF\.Debug\Microsoft.Kinect.Toolkit.Controls.pdb
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinectv1.8\.Debug\KinectInteraction180_32.dll
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinectv1.8\.Debug\KinectInteraction180_64.dll
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinectv1.8\.Debug\Microsoft.Kinect.Toolkit.Controls.dll
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\MuseoGoTKinectv1.8\.Debug\Microsoft.Kinect.Toolkit.Controls.pdb
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit.Controls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls_MarkupCompile.cache
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls_MarkupCompile.lref
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Themes\Generic.baml
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.g.resources
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.csproj.CoreCompileInputs.cache
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.csproj.CopyComplete
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.dll
+D:\Documentos\GitHub\Nuevos-Paradigmas-de-Interacci-n\Kinect_cs\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.pdb
