@@ -10,6 +10,8 @@ namespace Microsoft.Samples.Kinect.GOT
     using System.Globalization;
     using System.Windows;
     using System.Windows.Data;
+    using System.Windows.Input;
+    using System.Windows.Media;
     using Microsoft.Kinect;
     using Microsoft.Kinect.Toolkit;
     using Microsoft.Kinect.Toolkit.Controls;

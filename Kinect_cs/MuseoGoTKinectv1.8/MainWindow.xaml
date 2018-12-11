@@ -9,14 +9,14 @@
         Title="Museo GoT Kinect"
         Closing="WindowClosing"
         mc:Ignorable="d"
-        d:DesignWidth="1200"
-        d:DesignHeight="700"
-        MinWidth="500"
-        MinHeight="700"
+        d:DesignWidth="1920"
+        d:DesignHeight="1080"
+        MinWidth="1920"
+        MinHeight="1080"
         FontFamily="Segoe UI"
         >
-    
-<Window.Resources>
+
+    <Window.Resources>
         <PathGeometry x:Key="ChevronGeometry" x:Shared="False">
             F1M150.001,146.9932L126.565,169.3822L126.565,153.5962L150.001,130.6182L173.435,153.5962L173.435,169.3822z
         </PathGeometry>
@@ -102,7 +102,7 @@
             <Setter Property="Content" Value="{StaticResource ChevronLeft}"/>
         </Style>
     </Window.Resources>
-    
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Images/mapa.jpg"></ImageBrush>
@@ -119,19 +119,8 @@
 
         <k:KinectRegion Grid.Row="1" x:Name="kinectRegion">
             <Grid x:Name="kinectRegionGrid" Margin="10,20,10,20">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="170" />
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0, 10, 0, 10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <local:KinectHoverButton Grid.Column="0" Style="{StaticResource KinectHoverButtonScrollLeftStyle}" Click="PageLeftButtonClick" IsEnabled="{Binding ElementName=ControlsBasicsWindow, Path=PageLeftEnabled}"/>
-                    <local:KinectHoverButton Grid.Column="2" Style="{StaticResource KinectHoverButtonScrollRightStyle}" Click="PageRightButtonClick" IsEnabled="{Binding ElementName=ControlsBasicsWindow, Path=PageRightEnabled}"/>
-                </Grid>
+                <local:KinectHoverButton Style="{StaticResource KinectHoverButtonScrollLeftStyle}" Click="PageLeftButtonClick" IsEnabled="{Binding ElementName=ControlsBasicsWindow, Path=PageLeftEnabled}" Margin="56,-50,1458,204"/>
+                <local:KinectHoverButton Style="{StaticResource KinectHoverButtonScrollRightStyle}" Click="PageRightButtonClick" IsEnabled="{Binding ElementName=ControlsBasicsWindow, Path=PageRightEnabled}" Margin="708,280,72,296"/>
             </Grid>
         </k:KinectRegion>
     </Grid>
