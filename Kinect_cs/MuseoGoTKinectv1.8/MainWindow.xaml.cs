@@ -16,6 +16,13 @@ namespace Microsoft.Samples.Kinect.GOT
     using Microsoft.Kinect;
     using Microsoft.Kinect.Toolkit;
     using Microsoft.Kinect.Toolkit.Controls;
+    using System.Windows.Navigation;
+    using System;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Navigation;
+    using System.Windows.Media.Imaging;
+
 
     /// <summary>
     /// Interaction logic for MainWindow
@@ -260,14 +267,29 @@ namespace Microsoft.Samples.Kinect.GOT
             /* var selectionDisplay = new SelectionDisplay(button.Label as string);
              this.kinectRegionGrid.Children.Add(selectionDisplay);
              e.Handled = true;*/
+            Uri uri = new Uri("MainWindow.xaml", UriKind.Relative);
+
+        }
+        private void KinectTileButtonClick2(object sender, RoutedEventArgs e)
+        {
+            var button = (KinectTileButton)e.OriginalSource;
+            /* var selectionDisplay = new SelectionDisplay(button.Label as string);
+             this.kinectRegionGrid.Children.Add(selectionDisplay);
+             e.Handled = true;*/
+            button.Background = Brushes.AliceBlue;
+            var imgBrush = new ImageBrush();
+            imgBrush.ImageSource = new BitmapImage(new Uri("../Images/essos.jpg", UriKind.Relative));
+            foto.Background = imgBrush;
+            button.Visibility = Visibility.Hidden;
+            left.Visibility = Visibility.Hidden;
         }
 
-            /// <summary>
-            /// Handle paging right (next button).
-            /// </summary>
-            /// <param name="sender">Event sender</param>
-            /// <param name="e">Event arguments</param>
-            private void PageRightButtonClick(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handle paging right (next button).
+        /// </summary>
+        /// <param name="sender">Event sender</param>
+        /// <param name="e">Event arguments</param>
+        private void PageRightButtonClick(object sender, RoutedEventArgs e)
         {
                 
         }
