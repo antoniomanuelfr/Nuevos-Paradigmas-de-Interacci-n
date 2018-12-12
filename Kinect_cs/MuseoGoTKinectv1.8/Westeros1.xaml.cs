@@ -1,33 +1,33 @@
-﻿//------------------------------------------------------------------------------
-// <copyright file="MainWindow.xaml.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//------------------------------------------------------------------------------
-
+﻿
 namespace Microsoft.Samples.Kinect.GOT
 {
     using System;
-    using System.Globalization;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Documents;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Navigation;
+    using System.Windows.Shapes;
+
+    using System;
     using System.IO;
     using System.Windows;
     using System.Windows.Data;
-    using System.Windows.Input;
-    using System.Windows.Media;
     using Microsoft.Kinect;
     using Microsoft.Kinect.Toolkit;
     using Microsoft.Kinect.Toolkit.Controls;
-    using System.Windows.Navigation;
-    using System;
-    using System.Windows;
-    using System.Windows.Controls;
-    using System.Windows.Navigation;
-    using System.Windows.Media.Imaging;
 
 
     /// <summary>
     /// Interaction logic for MainWindow
     /// </summary>
-    public partial class MainWindow
+    public partial class Westeros1 : UserControl
     {
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Microsoft.Samples.Kinect.GOT
         /// </summary>
         private KinectSensor sensor;
 
- 
+
         private const double ScrollErrorMargin = 0.001;
 
         private const int PixelScrollByAmount = 20;
@@ -45,10 +45,9 @@ namespace Microsoft.Samples.Kinect.GOT
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class. 
         /// </summary>
-        public MainWindow()
+        public Westeros1()
         {
             this.InitializeComponent();
-            mov = new fit();
 
             // initialize the sensor chooser and UI
             this.sensorChooser = new KinectSensorChooser();
@@ -103,21 +102,6 @@ namespace Microsoft.Samples.Kinect.GOT
             }
 
         }
-
-        /// <summary>
-        /// Execute shutdown tasks
-        /// </summary>
-        /// <param name="sender">object sending the event</param>
-        /// <param name="e">event arguments</param>
-        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (null != this.sensor)
-            {
-                this.sensor.Stop();
-            }
-        }
-        
-        
         /// <summary>
         /// Event handler for Kinect sensor's SkeletonFrameReady event
         /// </summary>
@@ -143,14 +127,14 @@ namespace Microsoft.Samples.Kinect.GOT
                 {
                     if (skel.TrackingState == SkeletonTrackingState.Tracked)
                     {
-
-                        //Gestures(skel);
-                        if (mov.deteccion(skel))
-                        {
-                            left.Opacity = (left.Opacity+1)%2;
-                        }
+                        Gestures(skel);
                     }
-
+                    else if (skel.TrackingState == SkeletonTrackingState.PositionOnly)
+                    {
+                    }
+                    else
+                    {
+                    }
                 }
             }
 
@@ -164,7 +148,8 @@ namespace Microsoft.Samples.Kinect.GOT
         /// 
         private void Gestures(Skeleton sk)
         {
-        }    
+            int a = 0;
+        }
 
         /// <summary>
         /// Called when the KinectSensorChooser gets a new sensor
@@ -198,7 +183,7 @@ namespace Microsoft.Samples.Kinect.GOT
 
                     try
                     {
-                        //args.NewSensor.DepthStream.Range = DepthRange.Near;
+                        args.NewSensor.DepthStream.Range = DepthRange.Near;
                         args.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
                     }
                     catch (InvalidOperationException)
@@ -216,25 +201,5 @@ namespace Microsoft.Samples.Kinect.GOT
             }
         }
 
-        /// <summary>
-        /// Handle a button click from the wrap panel.
-        /// </summary>
-        /// <param name="sender">Event sender</param>
-        /// <param name="e">Event arguments</param>
-        private void KinectTileButtonClick(object sender, RoutedEventArgs e)
-        {
-            westeros_button.Visibility = Visibility.Hidden;
-            essos_button.Visibility = Visibility.Hidden;
-            var imgBrush = new ImageBrush();
-            imgBrush.ImageSource = new BitmapImage(new Uri("../Images/essos.jpg", UriKind.Relative));
-            foto.Background = imgBrush;
-            left2.Visibility = Visibility.Visible;
-            right2.Visibility = Visibility.Visible;
-
-
-        }
-        private void KinectTileButtonClick2(object sender, RoutedEventArgs e)
-        {
-        }
     }
 }
