@@ -7,21 +7,13 @@
 namespace Microsoft.Samples.Kinect.GOT
 {
     using System;
-    using System.Globalization;
     using System.IO;
     using System.Windows;
     using System.Windows.Data;
-    using System.Windows.Input;
-    using System.Windows.Media;
     using Microsoft.Kinect;
     using Microsoft.Kinect.Toolkit;
     using Microsoft.Kinect.Toolkit.Controls;
-    using System.Windows.Navigation;
-    using System;
-    using System.Windows;
-    using System.Windows.Controls;
-    using System.Windows.Navigation;
-    using System.Windows.Media.Imaging;
+    using Microsoft.Samples.Kinect.ControlsBasics;
 
 
     /// <summary>
@@ -34,8 +26,14 @@ namespace Microsoft.Samples.Kinect.GOT
         /// Active Kinect sensor
         /// </summary>
         private KinectSensor sensor;
+        private bool arriba=false;
+        private fit mov;
+        public static readonly DependencyProperty PageLeftEnabledProperty = DependencyProperty.Register(
+            "PageLeftEnabled", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
 
- 
+        public static readonly DependencyProperty PageRightEnabledProperty = DependencyProperty.Register(
+            "PageRightEnabled", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
+
         private const double ScrollErrorMargin = 0.001;
 
         private const int PixelScrollByAmount = 20;
@@ -223,18 +221,11 @@ namespace Microsoft.Samples.Kinect.GOT
         /// <param name="e">Event arguments</param>
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
-            westeros_button.Visibility = Visibility.Hidden;
-            essos_button.Visibility = Visibility.Hidden;
-            var imgBrush = new ImageBrush();
-            imgBrush.ImageSource = new BitmapImage(new Uri("../Images/essos.jpg", UriKind.Relative));
-            foto.Background = imgBrush;
-            left2.Visibility = Visibility.Visible;
-            right2.Visibility = Visibility.Visible;
-
-
+            this.Content = new Westeros();
         }
         private void KinectTileButtonClick2(object sender, RoutedEventArgs e)
         {
+            this.Content = new Essos();
         }
     }
 }
