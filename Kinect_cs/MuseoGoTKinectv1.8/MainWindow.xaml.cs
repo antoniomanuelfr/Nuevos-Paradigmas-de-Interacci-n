@@ -26,7 +26,8 @@ namespace Microsoft.Samples.Kinect.GOT
         /// Active Kinect sensor
         /// </summary>
         private KinectSensor sensor;
-
+        private bool arriba=false;
+        private fit mov;
         public static readonly DependencyProperty PageLeftEnabledProperty = DependencyProperty.Register(
             "PageLeftEnabled", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
 
@@ -45,6 +46,7 @@ namespace Microsoft.Samples.Kinect.GOT
         public MainWindow()
         {
             this.InitializeComponent();
+            mov = new fit();
 
             // initialize the sensor chooser and UI
             this.sensorChooser = new KinectSensorChooser();
@@ -139,14 +141,15 @@ namespace Microsoft.Samples.Kinect.GOT
                 {
                     if (skel.TrackingState == SkeletonTrackingState.Tracked)
                     {
-                        Gestures(skel);
+
+                        //Gestures(skel);
+                        if (mov.deteccion(skel))
+                        {
+                            left.Opacity = (left.Opacity+1)%2;
+                        }
+                    break;
                     }
-                    else if (skel.TrackingState == SkeletonTrackingState.PositionOnly)
-                    {
-                    }
-                    else
-                    {
-                    }
+
                 }
             }
 
@@ -160,7 +163,6 @@ namespace Microsoft.Samples.Kinect.GOT
         /// 
         private void Gestures(Skeleton sk)
         {
-            int a = 0;
         }    
 
         /// <summary>
@@ -195,7 +197,7 @@ namespace Microsoft.Samples.Kinect.GOT
 
                     try
                     {
-                        args.NewSensor.DepthStream.Range = DepthRange.Near;
+                        //args.NewSensor.DepthStream.Range = DepthRange.Near;
                         args.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
                     }
                     catch (InvalidOperationException)
