@@ -26,13 +26,7 @@ namespace Microsoft.Samples.Kinect.GOT
         /// Active Kinect sensor
         /// </summary>
         private KinectSensor sensor;
-        private bool arriba=false;
         private fit mov;
-        public static readonly DependencyProperty PageLeftEnabledProperty = DependencyProperty.Register(
-            "PageLeftEnabled", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
-
-        public static readonly DependencyProperty PageRightEnabledProperty = DependencyProperty.Register(
-            "PageRightEnabled", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
 
         private const double ScrollErrorMargin = 0.001;
 
