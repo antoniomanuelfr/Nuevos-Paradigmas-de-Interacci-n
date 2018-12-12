@@ -85,7 +85,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             else if (fase == 1) {
                 if(puntos[2].Position.Y > puntos[1].Position.Y)
                 {
-                    Console.WriteLine("EN FASE 1 PERO NO ACABADO");
+                    Console.WriteLine("111111111");
                     return true;
                 }
                 else if ((puntos[2].Position.Y < puntos[1].Position.Y)){

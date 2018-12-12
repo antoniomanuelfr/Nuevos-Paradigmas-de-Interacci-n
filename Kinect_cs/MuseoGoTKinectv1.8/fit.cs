@@ -43,7 +43,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 }
                 else
                 {
-                    Console.WriteLine("EN MOVIMIENTO PERO NO FASE 2");
                     return false;
                 }
             }

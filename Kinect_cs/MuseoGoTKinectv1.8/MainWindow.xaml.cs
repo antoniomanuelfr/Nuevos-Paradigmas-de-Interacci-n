@@ -147,7 +147,6 @@ namespace Microsoft.Samples.Kinect.GOT
                         {
                             left.Opacity = (left.Opacity+1)%2;
                         }
-                    break;
                     }
 
                 }
