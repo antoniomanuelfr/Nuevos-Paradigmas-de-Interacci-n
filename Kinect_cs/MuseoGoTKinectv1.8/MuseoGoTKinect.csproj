@@ -57,6 +57,12 @@
     <Compile Include="SelectionDisplay.xaml.cs">
       <DependentUpon>SelectionDisplay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Westeros.xaml.cs">
+      <DependentUpon>Westeros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Essos.xaml.cs">
+      <DependentUpon>Essos.xaml</DependentUpon>
+    </Compile>
     <Page Include="Common\StandardStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -74,6 +80,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SelectionDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Westeros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Essos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

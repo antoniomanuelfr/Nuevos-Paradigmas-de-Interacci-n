@@ -7,21 +7,13 @@
 namespace Microsoft.Samples.Kinect.GOT
 {
     using System;
-    using System.Globalization;
     using System.IO;
     using System.Windows;
     using System.Windows.Data;
-    using System.Windows.Input;
-    using System.Windows.Media;
     using Microsoft.Kinect;
     using Microsoft.Kinect.Toolkit;
     using Microsoft.Kinect.Toolkit.Controls;
-    using System.Windows.Navigation;
-    using System;
-    using System.Windows;
-    using System.Windows.Controls;
-    using System.Windows.Navigation;
-    using System.Windows.Media.Imaging;
+    using Microsoft.Samples.Kinect.ControlsBasics;
 
 
     /// <summary>
@@ -34,8 +26,6 @@ namespace Microsoft.Samples.Kinect.GOT
         /// Active Kinect sensor
         /// </summary>
         private KinectSensor sensor;
-        const int skeletonCount = 6;
-        Skeleton[] allSkeletons = new Skeleton[skeletonCount];
 
         public static readonly DependencyProperty PageLeftEnabledProperty = DependencyProperty.Register(
             "PageLeftEnabled", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
@@ -107,6 +97,7 @@ namespace Microsoft.Samples.Kinect.GOT
                     this.sensor = null;
                 }
             }
+
         }
 
         /// <summary>
@@ -162,7 +153,7 @@ namespace Microsoft.Samples.Kinect.GOT
 
         }
 
-        /// <sumary>
+        ///  <sumary>
         /// Gestures detection
         /// </sumary>
         /// <param> </param>
@@ -171,40 +162,6 @@ namespace Microsoft.Samples.Kinect.GOT
         {
             int a = 0;
         }    
-
-
-
-    
-        /// CLR Property Wrappers for PageLeftEnabledProperty
-        /// </summary>
-        public bool PageLeftEnabled
-        {
-            get
-            {
-                return (bool)GetValue(PageLeftEnabledProperty);
-            }
-
-            set
-            {
-                this.SetValue(PageLeftEnabledProperty, value);
-            }
-        }
-
-        /// <summary>
-        /// CLR Property Wrappers for PageRightEnabledProperty
-        /// </summary>
-        public bool PageRightEnabled
-        {
-            get
-            {
-                return (bool)GetValue(PageRightEnabledProperty);
-            }
-
-            set
-            {
-                this.SetValue(PageRightEnabledProperty, value);
-            }
-        }
 
         /// <summary>
         /// Called when the KinectSensorChooser gets a new sensor
@@ -263,52 +220,11 @@ namespace Microsoft.Samples.Kinect.GOT
         /// <param name="e">Event arguments</param>
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
-            var button = (KinectTileButton)e.OriginalSource;
-            /* var selectionDisplay = new SelectionDisplay(button.Label as string);
-             this.kinectRegionGrid.Children.Add(selectionDisplay);
-             e.Handled = true;*/
-            Uri uri = new Uri("MainWindow.xaml", UriKind.Relative);
-
+            this.Content = new Westeros();
         }
         private void KinectTileButtonClick2(object sender, RoutedEventArgs e)
         {
-            var button = (KinectTileButton)e.OriginalSource;
-            /* var selectionDisplay = new SelectionDisplay(button.Label as string);
-             this.kinectRegionGrid.Children.Add(selectionDisplay);
-             e.Handled = true;*/
-            button.Background = Brushes.AliceBlue;
-            var imgBrush = new ImageBrush();
-            imgBrush.ImageSource = new BitmapImage(new Uri("../Images/essos.jpg", UriKind.Relative));
-            foto.Background = imgBrush;
-            button.Visibility = Visibility.Hidden;
-            left.Visibility = Visibility.Hidden;
-        }
-
-        /// <summary>
-        /// Handle paging right (next button).
-        /// </summary>
-        /// <param name="sender">Event sender</param>
-        /// <param name="e">Event arguments</param>
-        private void PageRightButtonClick(object sender, RoutedEventArgs e)
-        {
-                
-        }
-
-        /// <summary>
-        /// Handle paging left (previous button).
-        /// </summary>
-        /// <param name="sender">Event sender</param>
-        /// <param name="e">Event arguments</param>
-        private void PageLeftButtonClick(object sender, RoutedEventArgs e)
-        {
-        }
-
-        /// <summary>
-        /// Change button state depending on scroll viewer position
-        /// </summary>
-        private void UpdatePagingButtonState()
-        {
-
+            this.Content = new Essos();
         }
     }
 }
