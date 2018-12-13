@@ -1,15 +1,12 @@
-﻿//------------------------------------------------------------------------------
-// <copyright file="MainWindow.xaml.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//------------------------------------------------------------------------------
-
+﻿
 namespace Microsoft.Samples.Kinect.GOT
 {
     using System;
     using System.IO;
     using System.Windows;
     using System.Windows.Data;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
     using Microsoft.Kinect;
     using Microsoft.Kinect.Toolkit;
     using Microsoft.Kinect.Toolkit.Controls;
@@ -50,7 +47,9 @@ namespace Microsoft.Samples.Kinect.GOT
 
             // Bind the sensor chooser's current sensor to the KinectRegion
             var regionSensorBinding = new Binding("Kinect") { Source = this.sensorChooser };
-            BindingOperations.SetBinding(this.kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
+            BindingOperations.SetBinding(this.map_buttons, KinectRegion.KinectSensorProperty, regionSensorBinding);
+            BindingOperations.SetBinding(this.essos_buttons, KinectRegion.KinectSensorProperty, regionSensorBinding);
+
 
         }
         /// <summary>
@@ -82,7 +81,7 @@ namespace Microsoft.Samples.Kinect.GOT
                 // Add an event handler to be called whenever there is new color frame data
                 this.sensor.SkeletonFrameReady += this.SensorSkeletonFrameReady;
 
-                this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
+                this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
                 // Start the sensor!
                 try
                 {
@@ -139,7 +138,7 @@ namespace Microsoft.Samples.Kinect.GOT
                         //Gestures(skel);
                         if (mov.deteccion(skel))
                         {
-                            left.Opacity = (left.Opacity+1)%2;
+                            mainWindow();
                         }
                     }
 
@@ -207,7 +206,16 @@ namespace Microsoft.Samples.Kinect.GOT
                 }
             }
         }
+        private void mainWindow()
+        {
+            westeros_buttons.Visibility = Visibility.Hidden;
+            essos_buttons.Visibility = Visibility.Hidden;
+            map_buttons.Visibility = Visibility.Visible;
+            var fondo = new ImageBrush();
+            fondo.ImageSource = new BitmapImage(new Uri("../Images/mapa.jpg", UriKind.Relative));
+            main_grid.Background = fondo;
 
+        }
         /// <summary>
         /// Handle a button click from the wrap panel.
         /// </summary>
@@ -215,11 +223,34 @@ namespace Microsoft.Samples.Kinect.GOT
         /// <param name="e">Event arguments</param>
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Content = new Westeros();
-        }
-        private void KinectTileButtonClick2(object sender, RoutedEventArgs e)
-        {
-            this.Content = new Essos();
+            String button_name = (sender as KinectTileButton).Name.ToString();
+            switch (button_name)
+            {
+                case "essos_button":
+                    essos_buttons.Visibility = Visibility.Visible;
+                    map_buttons.Visibility = Visibility.Hidden;
+                    var essos = new ImageBrush();
+                    essos.ImageSource = new BitmapImage(new Uri("../Images/essos.jpg", UriKind.Relative));
+                    main_grid.Background = essos;
+                    break;
+
+                case "westeros_button":
+                    westeros_buttons.Visibility = Visibility.Visible;
+                    map_buttons.Visibility = Visibility.Hidden;
+                    var westeros = new ImageBrush();
+                    westeros.ImageSource = new BitmapImage(new Uri("../Images/westeros.jpg", UriKind.Relative));
+                    main_grid.Background = westeros;
+                    break;
+
+                case "targaryen_button":
+                    break;
+
+                case "dothraki_button":
+                    break;
+                
+            }
+            Console.WriteLine(sender.ToString());
+
         }
     }
 }

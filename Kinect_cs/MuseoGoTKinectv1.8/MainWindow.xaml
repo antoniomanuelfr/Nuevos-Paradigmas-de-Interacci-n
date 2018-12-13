@@ -4,7 +4,6 @@
         xmlns:k="http://schemas.microsoft.com/kinect/2013"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Microsoft.Samples.Kinect.GOT"
         Name="MuseoGoTKinect"
         Title="Museo GoT Kinect"
         Loaded="WindowLoaded"
@@ -19,7 +18,7 @@
         >
 
 
-    <Grid x:Name="foto">
+    <Grid x:Name="main_grid">
         <Grid.Background>
             <ImageBrush ImageSource="Images/mapa.jpg"></ImageBrush>
         </Grid.Background>
@@ -33,10 +32,41 @@
             <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
         </Grid>
 
-        <k:KinectRegion Grid.Row="1" x:Name="kinectRegion">
-            <Grid x:Name="kinectRegionGrid" Margin="10,20,10,20">
-                <k:KinectTileButton x:Name="left" Background="White" Opacity="0.2" Click="KinectTileButtonClick"  Margin="133,10,1461,275" Height="Auto" Width="Auto"/>
-                <k:KinectTileButton x:Name="right" Background="White" Opacity="0.2" Click="KinectTileButtonClick2" Margin="601,270,10,220" Width="Auto" Height="Auto"/>
+        <k:KinectRegion Grid.Row="1" x:Name="map_buttons" Visibility="Visible">
+            <Grid x:Name="map_grid" Margin="10,20,10,20">
+                <k:KinectTileButton x:Name="westeros_button" Opacity="0.5" Click="KinectTileButtonClick"  Margin="133,10,1461,275" Height="Auto" Width="Auto"/>
+                <k:KinectTileButton x:Name="essos_button" Opacity="0.5" Click="KinectTileButtonClick" Margin="601,270,10,220" Width="Auto" Height="Auto"/>
+            </Grid>
+        </k:KinectRegion>
+        <k:KinectRegion Grid.Row="1" x:Name="westeros_buttons" Visibility="Hidden">
+            <Grid x:Name="westeros_grid" Margin="10,20,10,20">
+                <k:KinectTileButton x:Name="lannister_button" Opacity="0.5" Click="KinectTileButtonClick"  Margin="525,345,1097,259" Height="Auto" Width="Auto">
+                    <k:KinectTileButton.Background>
+                        <ImageBrush ImageSource="Images/lannister.png"/>
+                    </k:KinectTileButton.Background>
+                </k:KinectTileButton>
+                <k:KinectTileButton x:Name="stark_button" Opacity="0.5" Click="KinectTileButtonClick"  Margin="830,10,790,644" Height="Auto" Width="Auto">
+                    <k:KinectTileButton.Background>
+                        <ImageBrush ImageSource="Images/stark.png"/>
+                    </k:KinectTileButton.Background>
+                </k:KinectTileButton>
+                <k:KinectTileButton x:Name="baratheon_button" Opacity="0.5" Click="KinectTileButtonClick"  Margin="995,620,622,29" Height="Auto" Width="Auto">
+                    <k:KinectTileButton.Background>
+                        <ImageBrush ImageSource="Images/baratheon.png"/>
+                    </k:KinectTileButton.Background>
+                </k:KinectTileButton>
+            </Grid>
+        </k:KinectRegion>
+        <k:KinectRegion Grid.Row="1" x:Name="essos_buttons" Visibility="Hidden">
+            <Grid x:Name="essos_grid" Margin="10,20,10,20">
+                <k:KinectTileButton x:Name="targaryen_button" Opacity="0.5" Click="KinectTileButtonClick"  Margin="139,236,1472,289" Height="Auto" Width="Auto">
+                    <k:KinectTileButton.Background>
+                        <ImageBrush ImageSource="Images/targaryen.png"></ImageBrush>
+                    </k:KinectTileButton.Background>
+                </k:KinectTileButton>
+                
+                <k:KinectTileButton x:Name="dothraki_button" Background="Red" Opacity="0.2" Click="KinectTileButtonClick" Margin="655,236,956,289" Width="Auto" Height="Auto"/>
+                <k:KinectTileButton x:Name="dothraki2_button" Background="Red" Opacity="0.2" Click="KinectTileButtonClick" Margin="1230,236,381,289" Width="Auto" Height="Auto"/>
             </Grid>
         </k:KinectRegion>
     </Grid>

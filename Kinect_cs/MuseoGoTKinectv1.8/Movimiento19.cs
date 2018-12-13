@@ -36,7 +36,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             puntos[0] = esqueleto.Joints[JointType.ShoulderRight];
             puntos[1] = esqueleto.Joints[JointType.ElbowRight];
             puntos[2] = esqueleto.Joints[JointType.WristRight];
-            if(puntos[2].Position.Y > puntos[1].Position.Y)
+            if(puntos[2].Position.Y > puntos[0].Position.Y)
             {
                 return true;
             }
