@@ -23,7 +23,7 @@ namespace Microsoft.Samples.Kinect.GOT
         /// Active Kinect sensor
         /// </summary>
         private KinectSensor sensor;
-        private fit mov;
+        private Detector mov;
 
         private const double ScrollErrorMargin = 0.001;
 
@@ -37,7 +37,7 @@ namespace Microsoft.Samples.Kinect.GOT
         public MainWindow()
         {
             this.InitializeComponent();
-            mov = new fit();
+            mov = new Detector();
 
             // initialize the sensor chooser and UI
             this.sensorChooser = new KinectSensorChooser();
@@ -136,7 +136,6 @@ namespace Microsoft.Samples.Kinect.GOT
                 {
                     if (skel.TrackingState == SkeletonTrackingState.Tracked)
                     {
-
                         //Gestures(skel);
                         if (mov.deteccion(skel))
                         {

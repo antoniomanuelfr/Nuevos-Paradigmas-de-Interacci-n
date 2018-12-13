@@ -6,16 +6,15 @@ using System.Text;
 
 namespace Microsoft.Samples.Kinect.ControlsBasics
 {
-    class fit
+    class Detector
     {
-        private Movimiento19 mov1;
-        int cont;
+        private Movement1 mov1;
 
         String estado;
 
-        public fit()
+        public Detector()
         {
-            mov1 = new Movimiento19();
+            mov1 = new Movement1();
             estado = "Correcto";
         }
         public String getEstado()

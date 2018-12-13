@@ -53,8 +53,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Movimiento19.cs" />
-    <Compile Include="fit.cs" />
+    <Compile Include="Movement1.cs" />
+    <Compile Include="Detector.cs" />
     <Compile Include="KinectHoverButton.cs" />
     <Compile Include="SelectionDisplay.xaml.cs">
       <DependentUpon>SelectionDisplay.xaml</DependentUpon>
@@ -133,6 +133,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\fondo_boton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dothraki.jpg" />
+    <Resource Include="Images\faceless.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

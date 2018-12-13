@@ -6,14 +6,14 @@ using System.Text;
 
 namespace Microsoft.Samples.Kinect.ControlsBasics
 {
-    class Movimiento19
+    class Movement1
     {
 
 
         private int fase;
         private float factorA, factorB;
-
-        public Movimiento19(float a = 1.3f, float b = 0.7f)
+        private int cont; 
+        public Movement1(float a = 1.3f, float b = 0.7f)
         {
             fase = 0;
             factorA = a;
@@ -36,31 +36,22 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             puntos[0] = esqueleto.Joints[JointType.ShoulderRight];
             puntos[1] = esqueleto.Joints[JointType.ElbowRight];
             puntos[2] = esqueleto.Joints[JointType.WristRight];
-            if(puntos[2].Position.Y > puntos[0].Position.Y)
+            if(puntos[2].Position.Y > puntos[0].Position.Y) // muñeca por encima del hombro
             {
-                return true;
+                if( (puntos[2].Position.X > (puntos[1].Position.X * factorB)) && (puntos[2].Position.X < (puntos[1].Position.X * factorA)) )
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
                 return false;
             }
 
-            /*if ((puntos[0].Position.Y < (puntos[1].Position.Y * factorA)) && (puntos[0].Position.Y > (puntos[1].Position.Y * factorB))) {
-                if ((puntos[0].Position.Z < (puntos[1].Position.Z * factorA)) && (puntos[0].Position.Z > (puntos[1].Position.Z * factorB))) {
-                    if ((puntos[2].Position.X < (puntos[0].Position.X * factorA)) && (puntos[2].Position.X > (puntos[0].Position.X * factorB))) {
-                        if ((puntos[2].Position.Z < (puntos[0].Position.X * factorA)) && (puntos[2].Position.Z > (puntos[0].Position.X * factorB))) {
-                            return true;
-                        }
-                        else { return true; }
-                    }
-                    else { return true; }
-                }
-                else { return true; }
-            }
-            else
-            {
-                return false;
-            }*/
 
         }
         public bool movimiento(Skeleton esqueleto)
@@ -74,7 +65,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 if (Reposo(esqueleto))
                 {
                     fase = 1;
-                    Console.WriteLine("111111111");
+                    //Console.WriteLine("111111111");
                     return true;
                 }
                 else
@@ -83,17 +74,29 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 }
             }
             else if (fase == 1) {
-                if(puntos[2].Position.Y > puntos[1].Position.Y)
+                cont++;
+                if ((puntos[2].Position.X > (puntos[1].Position.X * factorB)) && (puntos[2].Position.X < (puntos[1].Position.X * factorA)))
                 {
-                    Console.WriteLine("111111111");
-                    return true;
+                    if(cont == 20)
+                    {
+                        cont = 0;
+                    }
+
+                    if ((puntos[2].Position.Y < puntos[1].Position.Y))
+                    {
+                        fase = 2;
+                        return true;
+                    }
+
+                    else
+                    {
+                        return true;
+                    }
+                    
                 }
-                else if ((puntos[2].Position.Y < puntos[1].Position.Y)){
-                    fase = 2;
-                    Console.WriteLine("222222222");
-                    return true;
-                }
-                else{
+                else
+                {
+                    fase = 0;
                     return false;
                 }
             }
