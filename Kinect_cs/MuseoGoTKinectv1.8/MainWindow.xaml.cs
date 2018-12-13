@@ -140,7 +140,7 @@ namespace Microsoft.Samples.Kinect.GOT
                         //Gestures(skel);
                         if (mov.deteccion(skel))
                         {
-                            mainWindow();
+                            goMainWindow();
                         }
                     }
 
@@ -208,7 +208,7 @@ namespace Microsoft.Samples.Kinect.GOT
                 }
             }
         }
-        private void mainWindow()
+        private void goMainWindow()
         {
             westeros_buttons.Visibility = Visibility.Hidden;
             essos_buttons.Visibility = Visibility.Hidden;
@@ -216,6 +216,28 @@ namespace Microsoft.Samples.Kinect.GOT
             var fondo = new ImageBrush();
             fondo.ImageSource = new BitmapImage(new Uri("../Images/mapa.jpg", UriKind.Relative));
             main_grid.Background = fondo;
+
+        }
+
+        private void goEssos() {
+            essos_buttons.Visibility = Visibility.Visible;
+            map_buttons.Visibility = Visibility.Hidden;
+            var essos = new ImageBrush();
+            essos.ImageSource = new BitmapImage(new Uri("../Images/essos.jpg", UriKind.Relative));
+            main_grid.Background = essos;
+        }
+
+        private void goWesteros()
+        {
+            westeros_buttons.Visibility = Visibility.Visible;
+            map_buttons.Visibility = Visibility.Hidden;
+            var westeros = new ImageBrush();
+            westeros.ImageSource = new BitmapImage(new Uri("../Images/westeros.jpg", UriKind.Relative));
+            main_grid.Background = westeros;
+        }
+
+        private void showInfo(String factionName)
+        {
 
         }
         /// <summary>
@@ -229,25 +251,29 @@ namespace Microsoft.Samples.Kinect.GOT
             switch (button_name)
             {
                 case "essos_button":
-                    essos_buttons.Visibility = Visibility.Visible;
-                    map_buttons.Visibility = Visibility.Hidden;
-                    var essos = new ImageBrush();
-                    essos.ImageSource = new BitmapImage(new Uri("../Images/essos.jpg", UriKind.Relative));
-                    main_grid.Background = essos;
+                    goEssos();
                     break;
 
                 case "westeros_button":
-                    westeros_buttons.Visibility = Visibility.Visible;
-                    map_buttons.Visibility = Visibility.Hidden;
-                    var westeros = new ImageBrush();
-                    westeros.ImageSource = new BitmapImage(new Uri("../Images/westeros.jpg", UriKind.Relative));
-                    main_grid.Background = westeros;
+                    goWesteros();
                     break;
 
                 case "targaryen_button":
                     break;
 
                 case "dothraki_button":
+                    break;
+
+                case "faceless_button":
+                    break;
+
+                case "stark_button":
+                    break;
+
+                case "lannister_button":
+                    break;
+
+                case "baratheon_button":
                     break;
                 
             }
