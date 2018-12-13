@@ -49,6 +49,8 @@ namespace Microsoft.Samples.Kinect.GOT
             var regionSensorBinding = new Binding("Kinect") { Source = this.sensorChooser };
             BindingOperations.SetBinding(this.map_buttons, KinectRegion.KinectSensorProperty, regionSensorBinding);
             BindingOperations.SetBinding(this.essos_buttons, KinectRegion.KinectSensorProperty, regionSensorBinding);
+            BindingOperations.SetBinding(this.westeros_buttons, KinectRegion.KinectSensorProperty, regionSensorBinding);
+
 
 
         }

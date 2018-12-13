@@ -34,8 +34,16 @@
 
         <k:KinectRegion Grid.Row="1" x:Name="map_buttons" Visibility="Visible">
             <Grid x:Name="map_grid" Margin="10,20,10,20">
-                <k:KinectTileButton x:Name="westeros_button" Opacity="0.5" Click="KinectTileButtonClick"  Margin="133,10,1461,275" Height="Auto" Width="Auto"/>
-                <k:KinectTileButton x:Name="essos_button" Opacity="0.5" Click="KinectTileButtonClick" Margin="601,270,10,220" Width="Auto" Height="Auto"/>
+                <k:KinectTileButton x:Name="westeros_button" Opacity="1" Click="KinectTileButtonClick"  Margin="70,10,1372,184" Height="Auto" Width="Auto">
+                    <k:KinectTileButton.Background>
+                        <ImageBrush ImageSource="Images/fondo_boton.png"></ImageBrush>
+                    </k:KinectTileButton.Background>
+                </k:KinectTileButton>
+                <k:KinectTileButton x:Name="essos_button" Opacity="1" Click="KinectTileButtonClick" Margin="540,180,10,114" Width="Auto" Height="Auto">
+                    <k:KinectTileButton.Background>
+                        <ImageBrush ImageSource="Images/essos.jpg"></ImageBrush>
+                    </k:KinectTileButton.Background>
+                </k:KinectTileButton>
             </Grid>
         </k:KinectRegion>
         <k:KinectRegion Grid.Row="1" x:Name="westeros_buttons" Visibility="Hidden">
