@@ -73,9 +73,15 @@
                         <ImageBrush ImageSource="Images/targaryen.png"></ImageBrush>
                     </k:KinectTileButton.Background>
                 </k:KinectTileButton>
-                
+
                 <k:KinectTileButton x:Name="dothraki_button" Background="Red" Opacity="0.2" Click="KinectTileButtonClick" Margin="655,236,956,289" Width="Auto" Height="Auto"/>
                 <k:KinectTileButton x:Name="dothraki2_button" Background="Red" Opacity="0.2" Click="KinectTileButtonClick" Margin="1230,236,381,289" Width="Auto" Height="Auto"/>
+            </Grid>
+        </k:KinectRegion>
+        <k:KinectRegion Grid.Row="1" x:Name="info_region" Visibility="Hidden">
+            <Grid x:Name="info_grid" Margin="10,20,10,20">
+                <TextBlock x:Name="info_textb" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="610,145,0,0" Height="395" Width="685" FontSize="16" FontWeight="Bold" Foreground="#FFFBF2F2"/>
+
             </Grid>
         </k:KinectRegion>
     </Grid>

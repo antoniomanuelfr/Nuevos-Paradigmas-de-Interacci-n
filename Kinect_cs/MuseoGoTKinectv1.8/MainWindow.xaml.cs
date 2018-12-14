@@ -24,6 +24,7 @@ namespace Microsoft.Samples.Kinect.GOT
         /// </summary>
         private KinectSensor sensor;
         private Detector mov;
+        private String actualWindow = "MainWindow";
 
         private const double ScrollErrorMargin = 0.001;
 
@@ -50,10 +51,10 @@ namespace Microsoft.Samples.Kinect.GOT
             BindingOperations.SetBinding(this.map_buttons, KinectRegion.KinectSensorProperty, regionSensorBinding);
             BindingOperations.SetBinding(this.essos_buttons, KinectRegion.KinectSensorProperty, regionSensorBinding);
             BindingOperations.SetBinding(this.westeros_buttons, KinectRegion.KinectSensorProperty, regionSensorBinding);
-
-
+            BindingOperations.SetBinding(this.info_region, KinectRegion.KinectSensorProperty, regionSensorBinding);
 
         }
+
         /// <summary>
         /// Execute startup tasks
         /// </summary>
@@ -83,7 +84,7 @@ namespace Microsoft.Samples.Kinect.GOT
                 // Add an event handler to be called whenever there is new color frame data
                 this.sensor.SkeletonFrameReady += this.SensorSkeletonFrameReady;
 
-                this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
+                this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
                 // Start the sensor!
                 try
                 {
@@ -94,7 +95,6 @@ namespace Microsoft.Samples.Kinect.GOT
                     this.sensor = null;
                 }
             }
-
         }
 
         /// <summary>
@@ -136,19 +136,20 @@ namespace Microsoft.Samples.Kinect.GOT
                 {
                     if (skel.TrackingState == SkeletonTrackingState.Tracked)
                     {
-                        //Gestures(skel);
-                        /*if (mov.deteccion(skel))
-                        {
-                            goMainWindow();
-                        }*/
+  
                         if (mov.deteccion(skel))
                         {
-                            westeros_button.Opacity = (westeros_button.Opacity + 1) % 2;
+                            //westeros_button.Opacity = (westeros_button.Opacity + 1) % 2;
+                            if (actualWindow != "MainWindow")
+                            {
+                                goMainWindow();
+                            }
                         }
                         if (mov.deteccion2(skel))
                         {
                             essos_button.Opacity = (essos_button.Opacity + 1) % 2;
                         }
+                        break;
                     }
 
                 }
@@ -156,15 +157,6 @@ namespace Microsoft.Samples.Kinect.GOT
 
 
         }
-
-        ///  <sumary>
-        /// Gestures detection
-        /// </sumary>
-        /// <param> </param>
-        /// 
-        private void Gestures(Skeleton sk)
-        {
-        }    
 
         /// <summary>
         /// Called when the KinectSensorChooser gets a new sensor
@@ -220,6 +212,7 @@ namespace Microsoft.Samples.Kinect.GOT
             westeros_buttons.Visibility = Visibility.Hidden;
             essos_buttons.Visibility = Visibility.Hidden;
             map_buttons.Visibility = Visibility.Visible;
+            info_region.Visibility = Visibility.Hidden;
             var fondo = new ImageBrush();
             fondo.ImageSource = new BitmapImage(new Uri("../Images/mapa.jpg", UriKind.Relative));
             main_grid.Background = fondo;
@@ -245,6 +238,21 @@ namespace Microsoft.Samples.Kinect.GOT
 
         private void showInfo(String factionName)
         {
+            var background = new ImageBrush();
+            background.ImageSource = new BitmapImage(new Uri("../Images/got.jpg", UriKind.Relative));
+            main_grid.Background = background;
+
+            switch (actualWindow)
+            {
+                case "EssosInfo":
+                    essos_buttons.Visibility = Visibility.Hidden;
+                    break;
+
+                case "WesterosInfo":
+                    westeros_buttons.Visibility = Visibility.Hidden;
+                    break;
+            }
+
 
         }
         /// <summary>
@@ -259,33 +267,53 @@ namespace Microsoft.Samples.Kinect.GOT
             {
                 case "essos_button":
                     goEssos();
+                    actualWindow = "EssosWindow";
                     break;
 
                 case "westeros_button":
                     goWesteros();
+                    actualWindow = "WesterosWindow";
+
                     break;
 
                 case "targaryen_button":
+                    actualWindow = "EssosInfo";
+                    showInfo("targaryen");
+
                     break;
 
                 case "dothraki_button":
+                    actualWindow = "EssosInfo";
+                    showInfo("dothraki");
+
+
                     break;
 
                 case "faceless_button":
+                    actualWindow = "EssosInfo";
+                    showInfo("faceless");
+
                     break;
 
                 case "stark_button":
+                    actualWindow = "WesterosInfo";
+                    showInfo("stark");
+
                     break;
 
                 case "lannister_button":
+                    actualWindow = "WesterosInfo";
+                    showInfo("lannister");
+
                     break;
 
                 case "baratheon_button":
+                    actualWindow = "WesterosInfo";
+                    showInfo("baratheon");
+
                     break;
                 
             }
-            Console.WriteLine(sender.ToString());
-
         }
     }
 }
