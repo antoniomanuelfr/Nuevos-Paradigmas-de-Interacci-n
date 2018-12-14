@@ -54,6 +54,7 @@
                         <ImageBrush ImageSource="Images/lannister.png"/>
                     </k:KinectTileButton.Background>
                 </k:KinectTileButton>
+                
                 <k:KinectTileButton x:Name="stark_button" Opacity="0.5" Click="KinectTileButtonClick"  Margin="830,10,790,644" Height="Auto" Width="Auto">
                     <k:KinectTileButton.Background>
                         <ImageBrush ImageSource="Images/stark.png"/>
@@ -80,8 +81,7 @@
         </k:KinectRegion>
         <k:KinectRegion Grid.Row="1" x:Name="info_region" Visibility="Hidden">
             <Grid x:Name="info_grid" Margin="10,20,10,20">
-                <TextBlock x:Name="info_textb" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="610,145,0,0" Height="395" Width="685" FontSize="16" FontWeight="Bold" Foreground="#FFFBF2F2"/>
-
+                <TextBlock x:Name="info_textb" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="610,145,0,0" Height="395" Width="685" FontSize="16" FontWeight="Bold" Foreground="#FFF01B1B"/>
             </Grid>
         </k:KinectRegion>
     </Grid>

@@ -24,11 +24,34 @@ namespace Microsoft.Samples.Kinect.GOT
         /// </summary>
         private KinectSensor sensor;
         private Detector mov;
+        private int actualFaction = -1;
         private String actualWindow = "MainWindow";
-
-        private const double ScrollErrorMargin = 0.001;
-
-        private const int PixelScrollByAmount = 20;
+        private String targaryenInfo = "La Casa Targaryen es una casa noble de ascendencia Valyria que escapó de la Maldición. Sus asentamientos eran la capital del reino Desembarco del Rey," 
+            + "la isla de Rocadragón y el castillo de Refugio Estival. Su emblema es un dragón de tres cabezas de gules en campo sable, representando a Aegon I y sus hermanas"+
+            "Rhaenys y Visenya.\nSu lema es Fuego y Sangre.Sus miembros vivieron durante siglos en la isla de Rocadragón hasta que Aegon Targaryen y sus hermanas" +
+            "montaron sus dragones y conquistaron seis de los Siete Reinos. Gobernaron Poniente durante casi 300 años hasta la Rebelión de Robert."
+            + "Sus espadas ancestrales de acero valyrio, ambas en actual paradero desconocido, son Fuegoscuro y Hermana Oscura.";
+        private String dothrakiInfo = "Los Dothraki son una cultura de guerreros nómadas de Essos, con una historia conocida que se remonta a hace unos cuatrocientos años, " +
+            "poco antes de que Aegon I desembarcase en Poniente. \nViven en los vastos pastizales del Mar Dothraki, en hordas conocidas como khalasares.Los dothraki suelen ser corpulentos, " +
+            "de piel cobriza y oscura, ojos almendrados y cabello comúnmente de color negro.";
+        private String facelessInfo = "El grupo se originó en las minas volcánicas de esclavos de Valyria. Su fundador se dio cuenta que todos los esclavos de Valyria, a pesar de sus distintos orígenes," +
+            " oraban al mismo dios de la muerte, sólo que cada encarnación era una faceta del mismo.\nLa sociedad cree que todos estos dioses no son más que facetas de un Dios, el Dios de Muchos Rostros. " +
+            "\nDe acuerdo a la sociedad, el dios está presente en muchas religiones, sólo que adopta diferentes nombres.\nEn Qohor es llamado la Cabra Negra, en Yi Ti, el León de Noche y en la Fe de los Siete, " +
+            "el Desconocido.\nEn el templo de la sociedad, la Casa de Blanco y Negro, los seguidores visten túnicas blancas y negras y realizan tareas a la comunidad, tales como atender a los muertos." +
+            "\nLa Casa contiene una fuente y altares con muchos ídolos, representando los distintos dioses de la muerte, incluido el Desconocido de la Fe de los Siete, pero no existen servicios religiosos formales. \n" +
+            "Algunos visitantes oran y encienden velas al dios, luego beben del agua de la fuente usando una copa negra." +
+            "\nLos religiosos llenan la fuente con veneno, por lo que aquellos que beben de ella sufren una muerte sin dolor.Esto es llamado el regalo del Dios de Muchos Rostros."
+            +"Una frase asociada al culto del Dios de Muchos Rostros es Valar Morghulis, que traducido del Alto Valyrio significa todos los hombres deben morir; la respuesta a esta frase es Valar Dohaeris, " +
+            "que significa todos los hombres deben servir.";
+        private String starkInfo = "La Casa Stark de Invernalia es una casa noble del Norte.\nSu asentamiento es Invernalia.Durante siglos,"
+            +"fue la casa principal del Norte y su linaje se extiende hasta los Primeros Hombres, gobernando el Norte como reyes por derecho propio."+
+            "\nSu emblema es un lobo huargo de cenizo corriendo sobre campo de plata. Su lema es Se acerca el Invierno. Su espada ancestral de acero valyrio se llamaba Hielo.";
+        private String baratheonInfo = "La Casa Baratheon de Bastión de Tormentas es una casa noble de las Tierras de la Tormenta.\n" +
+            "Su asentamiento es Bastión de Tormentas, que fue residencia de la Casa Durrandon, los antiguos Reyes de la Tormenta.\n" +
+            "Su emblema es un venado coronado de sable sobre campo de oro. Su lema es Nuestra es la Furia.";
+        private String lannisterInfo = "La Casa Lannister de Roca Casterly es la principal casa noble de las Tierras del Oeste. "+ "\nSu asentamiento es Roca Casterly." + 
+            "\nSu emblema es un león rampante de oro sobre campo de gules.\nSu lema es ¡Oye mi Rugido!, aunque su lema no oficial," + 
+            " Un Lannister siempre paga sus deudas, es más conocido.";
 
         private readonly KinectSensorChooser sensorChooser;
 
@@ -211,6 +234,12 @@ namespace Microsoft.Samples.Kinect.GOT
                 }
             }
         }
+        
+        private void changeFaction(int actual)
+        {
+
+
+        }
         private void goMainWindow()
         {
             westeros_buttons.Visibility = Visibility.Hidden;
@@ -245,6 +274,7 @@ namespace Microsoft.Samples.Kinect.GOT
             var background = new ImageBrush();
             background.ImageSource = new BitmapImage(new Uri("../Images/got.jpg", UriKind.Relative));
             main_grid.Background = background;
+            String data;
 
             switch (actualWindow)
             {
@@ -256,8 +286,46 @@ namespace Microsoft.Samples.Kinect.GOT
                     westeros_buttons.Visibility = Visibility.Hidden;
                     break;
             }
+            switch (factionName)
+            {
+                case "targaryen":
+                    data = targaryenInfo;
+                    actualFaction = 0;
+                    break;
 
+                case "dothraki":
+                    actualFaction = 1;
+                    data = dothrakiInfo;
 
+                    break;
+                case "faceless":
+                    actualFaction = 2;
+                    data = facelessInfo;
+
+                    break;
+                case "stark":
+                    actualFaction = 0;
+                    data = starkInfo;
+
+                    break;
+                case "lannister":
+                    actualFaction = 1;
+                    data = lannisterInfo;
+
+                    break;
+                case "baratheon":
+                    actualFaction = 2;
+                    data = baratheonInfo;
+                    break;
+
+                default:
+                    data = "";
+                    break;
+
+            }
+
+            info_region.Visibility = Visibility.Visible;
+            info_textb.Text = data;
         }
         /// <summary>
         /// Handle a button click from the wrap panel.
@@ -315,8 +383,7 @@ namespace Microsoft.Samples.Kinect.GOT
                     actualWindow = "WesterosInfo";
                     showInfo("baratheon");
 
-                    break;
-                
+                    break;   
             }
         }
     }
