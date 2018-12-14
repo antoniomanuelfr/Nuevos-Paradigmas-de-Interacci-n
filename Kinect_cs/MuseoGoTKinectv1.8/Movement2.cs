@@ -40,7 +40,14 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             //if((puntos[2].Position.Y > (puntos[1].Position.Y * 0.5)) && (puntos[2].Position.Y < (puntos[1].Position.Y * 1.5))) //altura de muñeca y hombro igual
             if(puntos[2].Position.X >(puntos[1].Position.X)*1.5)
             {
-                return true;
+                if (puntos[2].Position.Y > (puntos[1].Position.Y) * 1.3)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
@@ -70,25 +77,28 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             }
             else if (fase == 1) {
                 cont++;
-                if (puntos[2].Position.X < (puntos[1].Position.X)) //mientras que la mano este al altura del hombro
+                if (puntos[2].Position.Y > (puntos[1].Position.Y))
                 {
-                    fase = 2;
-                    cont = 0;
+                    cont++;
+                    Console.WriteLine(cont.ToString());
+                        if (cont == 40)
+                        {
+                            cont = 0;
+                            fase = 0;
+                            return false;
+                        }
+                    if (puntos[2].Position.X < (puntos[1].Position.X)) //mientras que la mano este al altura del hombro
+                    {
+                        fase = 2;
+                        cont = 0;
+                        return true;
+
+                    }
                     return true;
-                    
                 }
                 else
                 {
-                    cont ++;
-                    Console.WriteLine(cont.ToString());
-                    if (cont == 40)
-                    {
-                        cont = 0;
-                        fase = 0;
-                        return false;
-                    }
-                    return true;
-                        
+                    return false;
                 }
             }
             else
