@@ -6,18 +6,19 @@ using System.Text;
 
 namespace Microsoft.Samples.Kinect.ControlsBasics
 {
-    class Movement1
+    class Movement2
     {
 
 
         private int fase;
-        private float factorA, factorB;
+        private float factorA, factorB,factorC;
         private int cont; 
-        public Movement1(float a = 1.2f, float b = 0.8f)
+        public Movement2(float a = 1.3f, float b = 0.7f , float c = 1.4f)
         {
             fase = 0;
             factorA = a;
             factorB = b;
+            factorC = c;
         }
 
         public int getFase()
@@ -36,16 +37,10 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             puntos[0] = esqueleto.Joints[JointType.ShoulderRight];
             puntos[1] = esqueleto.Joints[JointType.ElbowRight];
             puntos[2] = esqueleto.Joints[JointType.WristRight];
-            if(puntos[2].Position.Y > (puntos[0].Position.Y*factorB)) // muñeca un poco por encima del hombro
+            //if((puntos[2].Position.Y > (puntos[1].Position.Y * 0.5)) && (puntos[2].Position.Y < (puntos[1].Position.Y * 1.5))) //altura de muñeca y hombro igual
+            if(puntos[2].Position.X >(puntos[1].Position.X)*1.5)
             {
-                if( (puntos[2].Position.X > (puntos[1].Position.X * factorB)) && (puntos[2].Position.X < (puntos[1].Position.X * factorA)) ) //muñeca y codo en la misma posicion X
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
             else
             {
@@ -75,32 +70,25 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             }
             else if (fase == 1) {
                 cont++;
-                if ((puntos[2].Position.X > (puntos[1].Position.X * factorB)) && (puntos[2].Position.X < (puntos[1].Position.X * factorA))) //muñeca y codo en la misma posicion X
+                if (puntos[2].Position.X < (puntos[1].Position.X)) //mientras que la mano este al altura del hombro
                 {
-                    Console.WriteLine(cont.ToString(),"\n");
-                    if (cont == 40)
-                    {
-                        cont = 0;
-                        fase = 0;
-                    }
-
-                    if ((puntos[2].Position.Y < puntos[1].Position.Y)) //muñeca mas bajo que codo
-                    {
-                        fase = 2;
-                        return true;
-                    }
-
-                    else
-                    {
-                        return true;
-                    }
+                    fase = 2;
+                    cont = 0;
+                    return true;
                     
                 }
                 else
                 {
-                    fase = 0;
-                    cont = 0;
-                    return false;
+                    cont ++;
+                    Console.WriteLine(cont.ToString());
+                    if (cont == 40)
+                    {
+                        cont = 0;
+                        fase = 0;
+                        return false;
+                    }
+                    return true;
+                        
                 }
             }
             else

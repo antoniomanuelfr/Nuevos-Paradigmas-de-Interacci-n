@@ -9,17 +9,12 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
     class Detector
     {
         private Movement1 mov1;
-
-        String estado;
+        private Movement2 mov2;
 
         public Detector()
         {
             mov1 = new Movement1();
-            estado = "Correcto";
-        }
-        public String getEstado()
-        {
-            return estado;
+            mov2 = new Movement2();
         }
 
         public int getFaseMv1()
@@ -37,6 +32,31 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             {
                 if(mov1.getFase() == 2)
                 {
+                    mov1.setFase(0);
+                    mov2.setFase(0);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+
+        public bool deteccion2(Skeleton esqueleto)
+        {
+
+            if (mov2.movimiento(esqueleto))
+            {
+                if (mov2.getFase() == 2)
+                {
+                    mov2.setFase(0);
                     mov1.setFase(0);
                     return true;
                 }

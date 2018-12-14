@@ -137,9 +137,17 @@ namespace Microsoft.Samples.Kinect.GOT
                     if (skel.TrackingState == SkeletonTrackingState.Tracked)
                     {
                         //Gestures(skel);
-                        if (mov.deteccion(skel))
+                        /*if (mov.deteccion(skel))
                         {
                             goMainWindow();
+                        }*/
+                        if (mov.deteccion(skel))
+                        {
+                            westeros_button.Opacity = (westeros_button.Opacity + 1) % 2;
+                        }
+                        if (mov.deteccion2(skel))
+                        {
+                            essos_button.Opacity = (essos_button.Opacity + 1) % 2;
                         }
                     }
 
