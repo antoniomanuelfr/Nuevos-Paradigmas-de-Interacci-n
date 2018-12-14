@@ -160,21 +160,20 @@ namespace Microsoft.Samples.Kinect.GOT
                     if (skel.TrackingState == SkeletonTrackingState.Tracked)
                     {
   
-                        if (mov.deteccion(skel))
+                        if (mov.deteccion(skel)) //movimiento bajar brazo
                         {
-                            //westeros_button.Opacity = (westeros_button.Opacity + 1) % 2;
                             if (actualWindow != "MainWindow")
                             {
                                 goMainWindow();
                             }
                         }
-                        if (mov.deteccion2(skel))
+                        if (mov.deteccion2(skel)) // derecha - izq mano por encima del codo
                         {
-                            westeros_button.Opacity = (westeros_button.Opacity + 1) % 2;
+                             changeFaction(1);
                         }
-                        if (mov.deteccion3(skel))
+                        if (mov.deteccion3(skel)) // izq- derecha mano por debajo del codo 
                         {
-                               essos_button.Opacity = (essos_button.Opacity + 1) % 2;
+                            changeFaction(-1);
                         }
                         break;
                     }
@@ -237,8 +236,52 @@ namespace Microsoft.Samples.Kinect.GOT
         
         private void changeFaction(int actual)
         {
+            String data;
+            actualFaction = (actualFaction + actual) % 3;
+            if(actualFaction == -1)
+            {
+                actualFaction = 2;
+            }
+            if (actualWindow == "EssosInfo")
+            {
+                    
+                switch (actualFaction)
+                {
+                    case 0: //targaryen
+                        data = targaryenInfo;
+                        break;
 
-
+                    case 1: // dothraki
+                        data = dothrakiInfo;
+                        break;
+                    case 2: //faceless
+                        data = facelessInfo;
+                        break;
+                    default:
+                        data = "";
+                        break;
+                }
+            }
+            else
+            {
+                switch (actualFaction)
+                {
+                    case 0: //stark
+                        data = starkInfo;
+                        break;
+                    case 1: //lannister
+                        data = lannisterInfo;
+                        break;
+                    case 2: //baratheon
+                        data = baratheonInfo;
+                        break;
+                    default:
+                        data = "";
+                        break;
+                }
+            
+            }
+            info_textb.Text = data;
         }
         private void goMainWindow()
         {

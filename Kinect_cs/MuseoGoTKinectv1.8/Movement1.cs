@@ -65,7 +65,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 if (Reposo(esqueleto))
                 {
                     fase = 1;
-                    //Console.WriteLine("111111111");
                     return true;
                 }
                 else
@@ -78,7 +77,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 if ((puntos[2].Position.X > (puntos[1].Position.X * factorB)) && (puntos[2].Position.X < (puntos[1].Position.X * factorA))) //muñeca y codo en la misma posicion X
                 {
                     cont++;
-                    Console.WriteLine(cont.ToString(),"\n");
                     if (cont == 40)
                     {
                         cont = 0;

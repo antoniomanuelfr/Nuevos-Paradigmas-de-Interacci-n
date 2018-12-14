@@ -80,7 +80,6 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 if (puntos[2].Position.Y < (puntos[1].Position.Y))
                 {
                     cont++;
-                    Console.WriteLine(cont.ToString());
                         if (cont == 40)
                         {
                             cont = 0;
