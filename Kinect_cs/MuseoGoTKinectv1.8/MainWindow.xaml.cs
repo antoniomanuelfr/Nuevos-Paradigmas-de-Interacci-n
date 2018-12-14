@@ -147,7 +147,11 @@ namespace Microsoft.Samples.Kinect.GOT
                         }
                         if (mov.deteccion2(skel))
                         {
-                            essos_button.Opacity = (essos_button.Opacity + 1) % 2;
+                            westeros_button.Opacity = (westeros_button.Opacity + 1) % 2;
+                        }
+                        if (mov.deteccion3(skel))
+                        {
+                               essos_button.Opacity = (essos_button.Opacity + 1) % 2;
                         }
                         break;
                     }

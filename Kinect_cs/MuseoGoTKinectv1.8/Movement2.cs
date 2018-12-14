@@ -38,9 +38,9 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             puntos[1] = esqueleto.Joints[JointType.ElbowRight];
             puntos[2] = esqueleto.Joints[JointType.WristRight];
             //if((puntos[2].Position.Y > (puntos[1].Position.Y * 0.5)) && (puntos[2].Position.Y < (puntos[1].Position.Y * 1.5))) //altura de muñeca y hombro igual
-            if(puntos[2].Position.X >(puntos[1].Position.X)*1.5)
+            if(puntos[2].Position.X >(puntos[1].Position.X)*1.3)
             {
-                if (puntos[2].Position.Y > (puntos[1].Position.Y) * 1.3)
+                if (puntos[2].Position.Y > (puntos[1].Position.Y) * 1.4)
                 {
                     return true;
                 }
@@ -77,7 +77,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             }
             else if (fase == 1) {
                 cont++;
-                if (puntos[2].Position.Y > (puntos[1].Position.Y))
+                if (puntos[2].Position.Y > (puntos[1].Position.Y)*1.4)
                 {
                     cont++;
                     Console.WriteLine(cont.ToString());
@@ -87,7 +87,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                             fase = 0;
                             return false;
                         }
-                    if (puntos[2].Position.X < (puntos[1].Position.X)) //mientras que la mano este al altura del hombro
+                    if (puntos[2].Position.X < (puntos[1].Position.X)*0.6) //mientras que la mano este al altura del hombro
                     {
                         fase = 2;
                         cont = 0;
@@ -98,6 +98,8 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
                 }
                 else
                 {
+                    fase = 0;
+                    cont = 0;
                     return false;
                 }
             }

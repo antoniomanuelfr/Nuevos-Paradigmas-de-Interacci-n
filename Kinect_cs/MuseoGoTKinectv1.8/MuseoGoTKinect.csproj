@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Movement3.cs" />
     <Compile Include="Movement2.cs" />
     <Compile Include="Movement1.cs" />
     <Compile Include="Detector.cs" />
