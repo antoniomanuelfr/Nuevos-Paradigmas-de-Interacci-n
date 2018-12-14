@@ -9,6 +9,7 @@
         Loaded="WindowLoaded"
         Closing="WindowClosing"
         mc:Ignorable="d"
+        Icon="./Images/icon.ico"
         d:DesignWidth="1920"
         d:DesignHeight="1080"
         MinWidth="1920"
