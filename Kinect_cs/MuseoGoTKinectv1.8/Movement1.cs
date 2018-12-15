@@ -36,7 +36,7 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             puntos[0] = esqueleto.Joints[JointType.ShoulderRight];
             puntos[1] = esqueleto.Joints[JointType.ElbowRight];
             puntos[2] = esqueleto.Joints[JointType.WristRight];
-            if(puntos[2].Position.Y > (puntos[0].Position.Y*factorB)) // muñeca un poco por encima del hombro
+            if(puntos[2].Position.Y > (puntos[0].Position.Y*factorA)) // muñeca un poco por encima del hombro
             {
                 if( (puntos[2].Position.X > (puntos[1].Position.X * factorB)) && (puntos[2].Position.X < (puntos[1].Position.X * factorA)) ) //muñeca y codo en la misma posicion X
                 {
@@ -74,15 +74,15 @@ namespace Microsoft.Samples.Kinect.ControlsBasics
             }
             else if (fase == 1) {
                 
-                if ((puntos[2].Position.X > (puntos[1].Position.X * factorB)) && (puntos[2].Position.X < (puntos[1].Position.X * factorA))) //muñeca y codo en la misma posicion X
+                if ((puntos[2].Position.X > (puntos[1].Position.X * 0.6)) && (puntos[2].Position.X < (puntos[1].Position.X * 1.4))) //muñeca y codo en la misma posicion X
                 {
                     cont++;
-                    if (cont == 40)
+                    if (cont == 60)
                     {
                         cont = 0;
                         fase = 0;
                     }
-
+                    Console.WriteLine(cont.ToString());
                     if ((puntos[2].Position.Y < puntos[1].Position.Y)) //muñeca mas bajo que codo
                     {
                         fase = 2;
